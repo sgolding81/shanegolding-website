@@ -5,71 +5,228 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shane Golding</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     body {
-      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #0c0c0c;
+      color: #e0e0e0;
+      overflow-x: hidden;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    header {
       height: 100vh;
-      font-family: 'Poppins', sans-serif;
-      background: radial-gradient(circle at top, #1f1f1f, #0d0d0d);
-      color: #f0f0f0;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      overflow: hidden;
+      position: relative;
+      z-index: 1;
+      background: radial-gradient(circle at top, rgba(20, 20, 20, 0.7), rgba(0, 0, 0, 0.9));
+      padding: 0 1rem;
     }
 
     h1 {
-      font-size: 3rem;
+      font-size: 3.5rem;
       font-weight: 700;
-      margin-bottom: 0.5rem;
-      animation: fadeIn 2s ease forwards;
+      color: #00b4ff;
+      text-shadow: 0 0 10px rgba(0,180,255,0.6);
+      margin-bottom: 1rem;
+      white-space: nowrap;
+      border-right: 3px solid #00b4ff;
+      overflow: hidden;
+      width: 0;
+      animation: typing 2.5s steps(25, end) forwards, blink 0.75s step-end infinite;
     }
 
-    hr {
-      width: 80px;
-      border: none;
-      height: 2px;
-      background: linear-gradient(90deg, #00c6ff, #0072ff);
-      margin: 1rem auto;
-      opacity: 0;
-      animation: fadeIn 3s ease forwards;
-      animation-delay: 1s;
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 14ch; } /* Adjust width based on character count of your name */
     }
 
-    p {
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    p.quote {
       font-size: 1.2rem;
       font-weight: 300;
-      color: #ccc;
-      max-width: 600px;
+      color: #aaa;
+      max-width: 700px;
+      margin: 0 auto;
       line-height: 1.6;
       opacity: 0;
-      animation: fadeIn 3s ease forwards;
-      animation-delay: 2s;
+      animation: fadeInUp 2s ease forwards;
+      animation-delay: 2.6s;
+    }
+
+    section {
+      position: relative;
+      z-index: 1;
+      padding: 5rem 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      border-left: 4px solid #00b4ff;
+      padding-left: 10px;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: #151515;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(0,180,255,0.4);
     }
 
     footer {
-      position: absolute;
-      bottom: 20px;
-      font-size: 0.9rem;
+      text-align: center;
+      padding: 2rem;
       color: #555;
+      font-size: 0.9rem;
+      border-top: 1px solid #222;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
-  <h1>Shane Golding</h1>
-  <hr>
-  <p>“The important thing is not to stop questioning. Curiosity has its own reason for existing.”<br>— Albert Einstein</p>
+  <canvas id="bg"></canvas>
+
+  <header>
+    <h1>Shane Golding</h1>
+    <p class="quote">“I think it's much more interesting to live not knowing than to have answers which might be wrong.”<br>— Richard Feynman</p>
+  </header>
+
+  <section>
+    <h2>About Me</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec nulla non elit luctus posuere. Suspendisse potenti. 
+    In tempus justo ac est imperdiet, nec porttitor orci tempor. Coming soon — more about my background, interests, and work.</p>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="card">Placeholder Project 1</div>
+      <div class="card">Placeholder Project 2</div>
+      <div class="card">Placeholder Project 3</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <p>Coming soon — ways to reach me.</p>
+  </section>
+
   <footer>© <span id="year"></span> Shane Golding</footer>
 
   <script>
+    // Particle background
+    const canvas = document.getElementById('bg');
+    const ctx = canvas.getContext('2d');
+    let particlesArray;
+    const numParticles = 80;
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2;
+        this.speedX = Math.random() * 0.6 - 0.3;
+        this.speedY = Math.random() * 0.6 - 0.3;
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(0,180,255,0.6)';
+        ctx.fill();
+      }
+    }
+
+    function init() {
+      particlesArray = [];
+      for (let i = 0; i < numParticles; i++) {
+        particlesArray.push(new Particle());
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let particle of particlesArray) {
+        particle.update();
+        particle.draw();
+      }
+      connect();
+      requestAnimationFrame(animate);
+    }
+
+    function connect() {
+      for (let a = 0; a < particlesArray.length; a++) {
+        for (let b = a; b < particlesArray.length; b++) {
+          let dx = particlesArray[a].x - particlesArray[b].x;
+          let dy = particlesArray[a].y - particlesArray[b].y;
+          let distance = Math.sqrt(dx * dx + dy * dy);
+          if (distance < 100) {
+            let opacityValue = 1 - distance / 100;
+            ctx.strokeStyle = `rgba(0,180,255,${opacityValue * 0.3})`;
+            ctx.lineWidth = 0.5;
+            ctx.beginPath();
+            ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+            ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    init();
+    animate();
+
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
