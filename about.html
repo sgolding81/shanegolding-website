@@ -12,11 +12,26 @@
             color: #e0e0e0;
             -webkit-font-smoothing:antialiased;
             -moz-osx-font-smoothing:grayscale;
+            margin: 0;
+        }
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
         }
         .container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 5rem 2rem;
+        }
+        header {
+            border-bottom: 1px solid #222;
+        }
+        nav a {
+            color: #00ff99;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 700;
         }
         h1 {
             font-family: 'Roboto Mono', monospace;
@@ -38,12 +53,21 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>About Us</h1>
-        <p>Shane Golding is a personal website and portfolio. This website is intended to showcase the work and projects of Shane Golding.</p>
-        <p>We are not a business. This is a personal website.</p>
-        <h2>Contact Us</h2>
-        <p>If you have any questions, please feel free to contact us at [email protected]</p>
-    </div>
+    <header>
+        <div class="nav-container">
+            <nav>
+                <a href="/">Home</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <h1>About Us</h1>
+            <p>Shane Golding is a personal website and portfolio. This website is intended to showcase the work and projects of Shane Golding.</p>
+            <p>We are not a business. This is a personal website.</p>
+            <h2>Contact Us</h2>
+            <p>If you have any questions, please feel free to contact us at [email protected]</p>
+        </div>
+    </main>
 </body>
 </html>
