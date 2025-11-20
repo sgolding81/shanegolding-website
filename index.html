@@ -4,7 +4,178 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Shane Golding</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="The personal website and portfolio of Shane Golding.">
+  <meta name="author" content="Shane Golding">
+  <meta name="keywords" content="Shane Golding, portfolio, projects, web developer">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Shane Golding">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://shanegolding.net">
+  <meta property="og:description" content="The personal website and portfolio of Shane Golding.">
+  <meta property="og:image" content="https://shanegolding.net/og-image.svg">
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html,body { height: 100%; }
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #0c0c0c;
+  color: #e0e0e0;
+  overflow-x: hidden;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Background particle canvas */
+#bg { position: fixed; inset: 0; z-index: 0; }
+
+header {
+  height: 25vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+  z-index:1;
+  background: radial-gradient(circle at top, rgba(20,20,20,0.7), rgba(0,0,0,0.9));
+  padding:0 1rem;
+}
+
+/* Typing effect for the name */
+h1 {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 3.5rem;
+  font-weight:700;
+  color:#00ff99;
+  text-shadow:0 0 10px rgba(0,255,153,0.6);
+  margin-bottom:1rem;
+  white-space:nowrap;
+  border-right:3px solid #00ff99;
+  overflow:hidden;
+  width:0;
+  animation: typing 2.5s steps(25,end) forwards, blink 0.75s step-end infinite;
+}
+@keyframes typing { from{width:0} to{width:14ch} } /* fits "Shane Golding" */
+@keyframes blink { 50%{ border-color: transparent } }
+
+p.quote {
+  font-size:1.12rem;
+  font-weight:300;
+  color:#aaa;
+  max-width:700px;
+  margin:0 auto;
+  line-height:1.6;
+  opacity:0;
+  animation: fadeInUp 2s ease forwards;
+  animation-delay:2.6s;
+}
+@keyframes fadeInUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+
+section { position:relative; z-index:1; padding:5rem 2rem; max-width:1000px; margin:0 auto; }
+
+section h2 {
+  font-family: 'Roboto Mono', monospace;
+  font-size:2rem;
+  margin-bottom:1rem;
+  border-left:4px solid #00ff99;
+  padding-left:10px;
+  font-weight: 700;
+}
+
+.projects {
+  display:grid;
+  grid-template-columns: 1fr;
+  gap:1.5rem;
+}
+
+.card {
+  background:#151515;
+  border-radius:12px;
+  padding:1.5rem;
+  box-shadow:0 0 15px rgba(0,0,0,0.4);
+  transition: transform .25s, box-shadow .25s;
+}
+.card:hover { transform:translateY(-6px); box-shadow:0 0 24px rgba(0,255,153,0.12); }
+
+footer {
+  text-align:center;
+  padding:2rem;
+  color:#555;
+  font-size:0.9rem;
+  border-top:1px solid #222;
+}
+
+/* Snake game styles */
+.game-wrapper {
+  display:flex;
+  gap:1rem;
+  align-items:flex-start;
+  flex-direction:row;
+  flex-wrap:wrap;
+}
+.game-area {
+  background: linear-gradient(180deg, rgba(20,20,20,0.6), rgba(10,10,10,0.9));
+  border-radius:10px;
+  padding:12px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  box-shadow: inset 0 0 12px rgba(0,0,0,0.6);
+}
+#gameCanvas {
+  background: #050505;
+  border-radius:6px;
+  display:block;
+  touch-action: none; /* support touch interactions */
+  image-rendering: pixelated;
+}
+.game-controls {
+  color:#cfeeff;
+  display:flex;
+  flex-direction:column;
+  gap:.5rem;
+  min-width:220px;
+}
+.control-row { display:flex; gap:.5rem; }
+button {
+  background:#0b4b63;
+  color:#e6f8ff;
+  border:1px solid rgba(0,255,153,0.12);
+  padding:.5rem .75rem;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:600;
+}
+button.secondary {
+  background:#111;
+  border:1px solid #222;
+  color:#9fb8c8;
+}
+.scoreboard {
+  background: rgba(255,255,255,0.02);
+  padding:.6rem;
+  border-radius:8px;
+  font-weight:600;
+  color:#bfeaff;
+  margin-bottom:.5rem;
+  text-align:center;
+}
+
+/* Responsive */
+@media (min-width:900px) {
+  .projects { grid-template-columns: 1fr; }
+  .game-wrapper { flex-direction:row; }
+}
+@media (max-width:899px) {
+  h1 { font-size:2.6rem; }
+  .game-wrapper { flex-direction:column; align-items:center; }
+  .game-controls { width:100%; display:flex; flex-direction:row; gap:.5rem; justify-content:center; flex-wrap:wrap; }
+  .control-row { width:100%; justify-content:center; }
+}
+</style>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -13,6 +184,9 @@
   <header>
     <h1>Shane Golding</h1>
     <p class="quote">“There is always a little more toothpaste in the tube. Think about it.”<br>— Bill Bryson</p>
+    <nav>
+        <a href="/about.html">About</a>
+    </nav>
   </header>
 
   <section>
@@ -83,8 +257,370 @@
     </div>
   </section>
 
-  <footer>© <span id="year"></span> Shane Golding</footer>
+  <footer>
+    <p>© <span id="year"></span> Shane Golding</p>
+    <p><a href="/privacy.html">Privacy Policy</a> | <a href="/terms.html">Terms of Service</a></p>
+  </footer>
 
-  <script src="script.js"></script>
+  <script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* =========== Particle background (same as earlier) =========== */
+const bgCanvas = document.getElementById('bg');
+const bgCtx = bgCanvas.getContext('2d');
+let particlesArray;
+const numParticles = 80;
+
+function resizeBg() {
+  bgCanvas.width = window.innerWidth;
+  bgCanvas.height = window.innerHeight;
+}
+window.addEventListener('resize', resizeBg);
+resizeBg();
+
+class Particle {
+  constructor() {
+    this.reset();
+  }
+  reset() {
+    this.x = Math.random() * bgCanvas.width;
+    this.y = Math.random() * bgCanvas.height;
+    this.size = Math.random() * 2;
+    this.speedX = Math.random() * 0.6 - 0.3;
+    this.speedY = Math.random() * 0.6 - 0.3;
+  }
+  update() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+    if (this.x < 0 || this.x > bgCanvas.width) this.speedX *= -1;
+    if (this.y < 0 || this.y > bgCanvas.height) this.speedY *= -1;
+  }
+  draw() {
+    bgCtx.beginPath();
+    bgCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    bgCtx.fillStyle = 'rgba(0,180,255,0.6)';
+    bgCtx.fill();
+  }
+}
+
+function initBg() {
+  particlesArray = [];
+  for (let i = 0; i < numParticles; i++) particlesArray.push(new Particle());
+}
+
+function animateBg() {
+  bgCtx.clearRect(0,0,bgCanvas.width,bgCanvas.height);
+  for (let p of particlesArray) { p.update(); p.draw(); }
+  connectBg();
+  requestAnimationFrame(animateBg);
+}
+
+function connectBg() {
+  for (let a = 0; a < particlesArray.length; a++) {
+    for (let b = a; b < particlesArray.length; b++) {
+      const dx = particlesArray[a].x - particlesArray[b].x;
+      const dy = particlesArray[a].y - particlesArray[b].y;
+      const dist = Math.sqrt(dx*dx + dy*dy);
+      if (dist < 100) {
+        const op = 1 - dist / 100;
+        bgCtx.strokeStyle = `rgba(0,180,255,${op * 0.25})`;
+        bgCtx.lineWidth = 0.5;
+        bgCtx.beginPath();
+        bgCtx.moveTo(particlesArray[a].x, particlesArray[a].y);
+        bgCtx.lineTo(particlesArray[b].x, particlesArray[b].y);
+        bgCtx.stroke();
+      }
+    }
+  }
+}
+
+initBg();
+animateBg();
+
+/* =========== Typing effect fallback width safety =========== */
+// If user rescales or font load changes layout, no action needed — typing uses ch width.
+
+/* =========== Snake Game Implementation =========== */
+(function() {
+  const canvas = document.getElementById('gameCanvas');
+  const ctx = canvas.getContext('2d');
+
+  // Game configuration
+  let gridSize = 18; // cells per row/column (square grid)
+  const cellPadding = 1; // visual padding inside cells
+  let cellSize; // pixel size calculated from canvas
+
+  // State
+  let snake = [{x:9,y:9}]; // array of {x,y} segments
+  let dir = {x:0,y:0}; // current direction
+  let nextDir = {x:0,y:0}; // queued direction
+  let food = null;
+  let score = 0;
+  let highScore = parseInt(localStorage.getItem('sg_snake_high') || '0', 10) || 0;
+  let running = false;
+  let gameInterval = null;
+  let speed = 120; // ms per tick (lower = faster)
+  const minGrid = 12, maxGrid = 28;
+
+  const scoreEl = document.getElementById('score');
+  const highEl = document.getElementById('highScore');
+  const startBtn = document.getElementById('startBtn');
+  const pauseBtn = document.getElementById('pauseBtn');
+  const resetBtn = document.getElementById('resetBtn');
+  const gridLabel = document.getElementById('gridSizeLabel');
+  const gridLabel2 = document.getElementById('gridSizeLabel2');
+
+  highEl.textContent = highScore;
+  scoreEl.textContent = score;
+  gridLabel.textContent = gridSize;
+  gridLabel2.textContent = gridSize;
+
+  // Responsive canvas sizing to keep square
+  function resizeGameCanvas() {
+    // choose a display size (max 420)
+    const maxDisplay = Math.min(window.innerWidth - 40, 420);
+    const display = Math.max(240, Math.min(maxDisplay, 380));
+    canvas.style.width = display + 'px';
+    canvas.style.height = display + 'px';
+
+    // set internal resolution according to grid to keep sharp cells
+    const devicePixelRatio = window.devicePixelRatio || 1;
+    const internalSize = gridSize * 18; // baseline 18px per cell
+    canvas.width = gridSize * Math.round(internalSize / gridSize) * devicePixelRatio;
+    canvas.height = canvas.width;
+    cellSize = canvas.width / gridSize;
+  }
+  window.addEventListener('resize', resizeGameCanvas);
+  resizeGameCanvas();
+
+  // Initialize or reset game
+  function resetGame() {
+    snake = [{x: Math.floor(gridSize/2), y: Math.floor(gridSize/2)}];
+    dir = {x:0,y:0};
+    nextDir = {x:0,y:0};
+    score = 0;
+    updateScore();
+    spawnFood();
+    stopLoop();
+    running = false;
+  }
+
+  function startGame() {
+    if (running) return;
+    running = true;
+    // if stationary, give initial direction to the right
+    if (dir.x === 0 && dir.y === 0 && nextDir.x === 0 && nextDir.y === 0) {
+      dir = {x:1,y:0};
+    }
+    startLoop();
+  }
+
+  function pauseGame() {
+    running = false;
+    stopLoop();
+  }
+
+  function startLoop() {
+    stopLoop();
+    gameInterval = setInterval(tick, speed);
+  }
+  function stopLoop() {
+    if (gameInterval) { clearInterval(gameInterval); gameInterval = null; }
+  }
+
+  function updateScore() {
+    scoreEl.textContent = score;
+    if (score > highScore) {
+      highScore = score;
+      highEl.textContent = highScore;
+      localStorage.setItem('sg_snake_high', highScore.toString());
+    }
+  }
+
+  function spawnFood() {
+    // find empty cell
+    let tries = 0;
+    while (tries < 1000) {
+      const fx = Math.floor(Math.random() * gridSize);
+      const fy = Math.floor(Math.random() * gridSize);
+      const collision = snake.some(s => s.x === fx && s.y === fy);
+      if (!collision) { food = {x:fx,y:fy}; return; }
+      tries++;
+    }
+    // fallback: if no place found, set food null
+    food = null;
+  }
+
+  function tick() {
+    // apply queued direction if valid (no reverse)
+    if ((nextDir.x !== -dir.x || nextDir.y !== -dir.y) && (nextDir.x !== 0 || nextDir.y !== 0)) {
+      dir = {...nextDir};
+    }
+
+    if (dir.x === 0 && dir.y === 0) return; // not moving yet
+
+    const head = { x: snake[0].x + dir.x, y: snake[0].y + dir.y };
+
+    // wrap-around behavior (or you can change to wall-collision)
+    if (head.x < 0) head.x = gridSize - 1;
+    if (head.x >= gridSize) head.x = 0;
+    if (head.y < 0) head.y = gridSize - 1;
+    if (head.y >= gridSize) head.y = 0;
+
+    // check self-collision
+    if (snake.some(seg => seg.x === head.x && seg.y === head.y)) {
+      // game over: stop and reset direction
+      pauseGame();
+      // brief flash or message - we'll reset after short delay
+      setTimeout(() => {
+        resetGame();
+        draw(); // show reset screen
+      }, 400);
+      return;
+    }
+
+    snake.unshift(head);
+
+    // ate food?
+    if (food && head.x === food.x && head.y === food.y) {
+      score += 1;
+      updateScore();
+      spawnFood();
+      // optionally increase speed slightly
+      if (score % 5 === 0 && speed > 45) {
+        speed = Math.max(45, speed - 6);
+        if (running) startLoop();
+      }
+    } else {
+      snake.pop(); // move forward
+    }
+
+    draw();
+  }
+
+  function clearCanvas() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+  }
+
+  function drawGrid() {
+    // optional: subtle grid lines or background
+  }
+
+  function draw() {
+    clearCanvas();
+    // background fill
+    ctx.fillStyle = '#050505';
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+
+    // draw food
+    if (food) {
+      drawCell(food.x, food.y, '#ff6b6b');
+    }
+
+    // draw snake
+    for (let i=0;i<snake.length;i++) {
+      const s = snake[i];
+      const shade = i === 0 ? '#00e0ff' : `rgba(0,180,255,${0.4 + (i/snake.length)*0.45})`;
+      drawCell(s.x, s.y, shade, i===0);
+    }
+  }
+
+  function drawCell(x,y,color,isHead) {
+    const pad = cellPadding;
+    const px = Math.round(x * cellSize) + pad;
+    const py = Math.round(y * cellSize) + pad;
+    const size = Math.round(cellSize) - pad*2;
+    // body
+    ctx.fillStyle = color;
+    ctx.fillRect(px, py, size, size);
+    // head highlight
+    if (isHead) {
+      ctx.strokeStyle = 'rgba(255,255,255,0.08)';
+      ctx.lineWidth = Math.max(1, Math.round(cellSize*0.04));
+      ctx.strokeRect(px + 0.5, py + 0.5, size - 1, size - 1);
+    }
+  }
+
+  // Input handling
+  window.addEventListener('keydown', (e) => {
+    const key = e.key;
+    if (['ArrowUp','ArrowDown','ArrowLeft','ArrowRight','w','a','s','d','W','A','S','D'].includes(key)) {
+      e.preventDefault();
+      if (key === 'ArrowUp' || key === 'w' || key === 'W') setDirection(0,-1);
+      if (key === 'ArrowDown' || key === 's' || key === 'S') setDirection(0,1);
+      if (key === 'ArrowLeft' || key === 'a' || key === 'A') setDirection(-1,0);
+      if (key === 'ArrowRight' || key === 'd' || key === 'D') setDirection(1,0);
+    } else if (key === ' ' || key === 'Spacebar') {
+      // space toggles start/pause
+      if (running) pauseGame(); else startGame();
+    }
+  });
+
+  function setDirection(x,y) {
+    // queue it (prevent reversing directly)
+    if (dir.x === -x && dir.y === -y) return;
+    nextDir = {x,y};
+  }
+
+  // Buttons
+  startBtn.addEventListener('click', () => { startGame(); });
+  pauseBtn.addEventListener('click', () => {
+    if (running) { pauseGame(); pauseBtn.textContent = 'Resume'; }
+    else { startGame(); pauseBtn.textContent = 'Pause'; }
+  });
+  resetBtn.addEventListener('click', () => { resetGame(); draw(); });
+
+  // Touch swipe support (basic)
+  let touchStart = null;
+  canvas.addEventListener('touchstart', (ev) => {
+    const t = ev.touches[0];
+    touchStart = {x:t.clientX, y:t.clientY, time: Date.now()};
+  }, {passive:true});
+  canvas.addEventListener('touchmove', (ev) => {
+    ev.preventDefault();
+  }, {passive:false});
+  canvas.addEventListener('touchend', (ev) => {
+    if (!touchStart) return;
+    const t = ev.changedTouches[0];
+    const dx = t.clientX - touchStart.x;
+    const dy = t.clientY - touchStart.y;
+    const adx = Math.abs(dx), ady = Math.abs(dy);
+    if (Math.max(adx,ady) > 20) {
+      if (adx > ady) {
+        if (dx > 0) setDirection(1,0); else setDirection(-1,0);
+      } else {
+        if (dy > 0) setDirection(0,1); else setDirection(0,-1);
+      }
+    } else {
+      // tap: toggle start/pause
+      if (running) pauseGame(); else startGame();
+    }
+    touchStart = null;
+  });
+
+  // Initialize game with safe defaults
+  function init() {
+    // Ensure canvas internal sizing matches grid
+    resizeGameCanvas();
+    resetGame();
+    // draw initial frame
+    draw();
+  }
+
+  init();
+
+  // Expose some helpers for debugging or future UI
+  window.__sg_snake = {
+    setGrid: (n) => {
+      gridSize = Math.max(minGrid, Math.min(maxGrid, Math.floor(n)));
+      gridLabel.textContent = gridSize;
+      gridLabel2.textContent = gridSize;
+      resizeGameCanvas();
+      resetGame();
+      draw();
+    }
+  };
+})();
+</script>
 </body>
 </html>
