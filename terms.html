@@ -1,90 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms of Service - Shane Golding</title>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Open Sans', sans-serif;
-            background-color: #0c0c0c;
-            color: #e0e0e0;
-            -webkit-font-smoothing:antialiased;
-            -moz-osx-font-smoothing:grayscale;
-            margin: 0;
-        }
-        .nav-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 5rem 2rem;
-        }
-        header {
-            border-bottom: 1px solid #222;
-        }
-        nav a {
-            color: #00ff99;
-            text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: 700;
-        }
-        h1 {
-            font-family: 'Roboto Mono', monospace;
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            border-left: 4px solid #00ff99;
-            padding-left: 10px;
-            font-weight: 700;
-        }
-        h2 {
-            font-family: 'Roboto Mono', monospace;
-            font-size: 1.5rem;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            border-left: 4px solid #00ff99;
-            padding-left: 10px;
-            font-weight: 700;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Terms — Shane Golding</title>
+  <meta name="description" content="Terms of use for shanegolding.net.">
+  <meta name="robots" content="index, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0b0c;
+      --surface: #141416;
+      --border: rgba(255, 255, 255, 0.07);
+      --border-strong: rgba(255, 255, 255, 0.14);
+      --text: #ededed;
+      --text-muted: #9a9a9d;
+      --text-dim: #6c6c6f;
+      --accent: #d4a373;
+      --max-width: 720px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    ::selection { background: rgba(212, 163, 115, 0.25); color: var(--text); }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .site-nav {
+      border-bottom: 1px solid var(--border);
+      padding: 1.1rem 0;
+      position: sticky;
+      top: 0;
+      background: rgba(11, 11, 12, 0.82);
+      backdrop-filter: saturate(140%) blur(10px);
+      -webkit-backdrop-filter: saturate(140%) blur(10px);
+      z-index: 10;
+    }
+    .site-nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .site-nav .brand {
+      font-weight: 600;
+      font-size: 0.98rem;
+      letter-spacing: -0.01em;
+    }
+    .site-nav ul {
+      display: flex;
+      gap: 1.75rem;
+      list-style: none;
+    }
+    .site-nav ul a {
+      color: var(--text-muted);
+      font-size: 0.94rem;
+      transition: color 0.15s ease;
+    }
+    .site-nav ul a:hover { color: var(--text); }
+
+    main { padding: 4.5rem 0 5rem; }
+
+    article .eyebrow {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-dim);
+      margin-bottom: 0.9rem;
+    }
+
+    article h1 {
+      font-size: clamp(2rem, 3.6vw, 2.5rem);
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      margin-bottom: 0.5rem;
+    }
+
+    article .meta {
+      color: var(--text-dim);
+      font-size: 0.92rem;
+      margin-bottom: 2.5rem;
+    }
+
+    article h2 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin: 2.5rem 0 0.85rem;
+      color: var(--text);
+    }
+
+    article p {
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      font-size: 1.02rem;
+    }
+    article p a {
+      color: var(--text);
+      border-bottom: 1px solid var(--border-strong);
+      transition: border-color 0.15s ease;
+    }
+    article p a:hover { border-color: var(--accent); }
+
+    footer {
+      padding: 2.5rem 0 3rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-dim);
+      font-size: 0.87rem;
+    }
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    footer a {
+      color: var(--text-muted);
+      transition: color 0.15s ease;
+    }
+    footer a:hover { color: var(--text); }
+    footer .legal-links {
+      display: flex;
+      gap: 1.25rem;
+    }
+
+    @media (max-width: 640px) {
+      .site-nav { padding: 0.9rem 0; }
+      .site-nav ul { gap: 1.25rem; }
+      main { padding: 3rem 0 4rem; }
+      footer .container { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="nav-container">
-            <nav>
-                <a href="/">Home</a>
-            </nav>
-        </div>
-    </header>
-    <main>
-        <div class="container">
-            <h1>Terms of Service</h1>
-            <p>Please read these terms of service ("terms", "terms of service") carefully before using the Shane Golding website (the "service") operated by Shane Golding ("us", 'we", "our").</p>
-            <h2>Conditions of Use</h2>
-            <p>We will provide their services to you, which are subject to the conditions stated below in this document. Every time you visit this website, use its services or make a purchase, you accept the following conditions. This is why we urge you to read them carefully.</p>
-            <h2>Privacy Policy</h2>
-            <p>Before you continue using our website we advise you to read our privacy policy [link to privacy policy] regarding our user data collection. It will help you better understand our practices.</p>
-            <h2>Copyright</h2>
-            <p>Content published on this website (digital downloads, images, texts, graphics, logos) is the property of Shane Golding and/or its content creators and protected by international copyright laws. The entire compilation of the content found on this website is the exclusive property of Shane Golding, with copyright authorship for this compilation by Shane Golding.</p>
-            <h2>Communications</h2>
-            <p>The entire communication with us is electronic. Every time you send us an email or visit our website, you are going to be communicating with us. You hereby consent to receive communications from us. If you subscribe to the news on our website, you are going to receive regular emails from us. We will continue to communicate with you by posting news and notices on our website and by sending you emails. You also agree that all notices, disclosures, agreements and other communications we provide to you electronically meet the legal requirements that such communications be in writing.</p>
-            <h2>Applicable Law</h2>
-            <p>By visiting this website, you agree that the laws of the [your location], without regard to principles of conflict laws, will govern these terms of service, or any dispute of any sort that might come between Shane Golding and you, or its business partners and associates.</p>
-            <h2>Disputes</h2>
-            <p>Any dispute related in any way to your visit to this website or to products you purchase from us shall be arbitrated by state or federal court [your location] and you consent to exclusive jurisdiction and venue of such courts.</p>
-            <h2>Comments, Reviews, and Emails</h2>
-            <p>Visitors may post content as long as it is not obscene, illegal, defamatory, threatening, infringing of intellectual property rights, invasive of privacy or injurious in any other way to third parties. Content has to be free of software viruses, political campaign, and commercial solicitation.</p>
-            <p>We reserve all rights (but not the obligation) to remove and/or edit such content. When you post your content, you grant Shane Golding non-exclusive, royalty-free and irrevocable right to use, reproduce, publish, modify such content throughout the world in any media.</p>
-            <h2>License and Site Access</h2>
-            <p>We grant you a limited license to access and make personal use of this website. You are not allowed to download or modify it. This may be done only with written consent from us.</p>
-            <h2>User Account</h2>
-            <p>If you are an owner of an account on this website, you are solely responsible for maintaining the confidentiality of your private user details (username and password). You are responsible for all activities that occur under your account or password.</p>
-            <p>We reserve all rights to terminate accounts, edit or remove content and cancel orders in their sole discretion.</p>
-        </div>
-    </main>
+  <nav class="site-nav">
+    <div class="container">
+      <a href="/" class="brand">Shane Golding</a>
+      <ul>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#work">Work</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <article class="container">
+      <p class="eyebrow">Legal</p>
+      <h1>Terms of Use</h1>
+      <p class="meta">Last updated April 2026</p>
+
+      <p>By using <a href="https://shanegolding.net">shanegolding.net</a> (the "site") you agree to the terms below. If you don't agree, please don't use the site.</p>
+
+      <h2>The site</h2>
+      <p>This is a personal website. It's provided as-is, without warranties of any kind. I make no guarantees about uptime, accuracy, or fitness for any particular purpose, and I may change or remove content at any time.</p>
+
+      <h2>Content and copyright</h2>
+      <p>Unless otherwise noted, all original content on the site — text, images, code, and design — is © Shane Golding. Short excerpts may be quoted for non-commercial purposes with attribution and a link back. For anything more than that, please ask.</p>
+      <p>Some third-party assets (for example, open-source libraries or typefaces) remain the property of their respective owners and are used under their own licenses.</p>
+
+      <h2>Acceptable use</h2>
+      <p>Don't use the site to break the law, probe or attack its infrastructure, or scrape it at a volume that disrupts normal service for other visitors. Automated crawling for good-faith reasons (search indexing, archiving) is fine.</p>
+
+      <h2>External links</h2>
+      <p>Outgoing links are provided for convenience. I don't control and am not responsible for the content of sites I link to.</p>
+
+      <h2>Limitation of liability</h2>
+      <p>To the fullest extent permitted by law, I am not liable for any loss or damage arising from your use of, or inability to use, the site.</p>
+
+      <h2>Changes</h2>
+      <p>If these terms change, the updated version will appear on this page with a new date at the top.</p>
+
+      <h2>Contact</h2>
+      <p>Questions? Email <a href="mailto:mail@shanegolding.net">mail@shanegolding.net</a>.</p>
+    </article>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> Shane Golding</p>
+      <div class="legal-links">
+        <a href="/about.html">About</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

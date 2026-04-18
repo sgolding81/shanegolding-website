@@ -1,106 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Shane Golding</title>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Open Sans', sans-serif;
-            background-color: #0c0c0c;
-            color: #e0e0e0;
-            -webkit-font-smoothing:antialiased;
-            -moz-osx-font-smoothing:grayscale;
-            margin: 0;
-        }
-        .nav-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 5rem 2rem;
-        }
-        header {
-            border-bottom: 1px solid #222;
-        }
-        nav a {
-            color: #00ff99;
-            text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: 700;
-        }
-        h1 {
-            font-family: 'Roboto Mono', monospace;
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            border-left: 4px solid #00ff99;
-            padding-left: 10px;
-            font-weight: 700;
-        }
-        h2 {
-            font-family: 'Roboto Mono', monospace;
-            font-size: 1.5rem;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            border-left: 4px solid #00ff99;
-            padding-left: 10px;
-            font-weight: 700;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Privacy — Shane Golding</title>
+  <meta name="description" content="Privacy policy for shanegolding.net.">
+  <meta name="robots" content="index, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0b0c;
+      --surface: #141416;
+      --border: rgba(255, 255, 255, 0.07);
+      --border-strong: rgba(255, 255, 255, 0.14);
+      --text: #ededed;
+      --text-muted: #9a9a9d;
+      --text-dim: #6c6c6f;
+      --accent: #d4a373;
+      --max-width: 720px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    ::selection { background: rgba(212, 163, 115, 0.25); color: var(--text); }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .site-nav {
+      border-bottom: 1px solid var(--border);
+      padding: 1.1rem 0;
+      position: sticky;
+      top: 0;
+      background: rgba(11, 11, 12, 0.82);
+      backdrop-filter: saturate(140%) blur(10px);
+      -webkit-backdrop-filter: saturate(140%) blur(10px);
+      z-index: 10;
+    }
+    .site-nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .site-nav .brand {
+      font-weight: 600;
+      font-size: 0.98rem;
+      letter-spacing: -0.01em;
+    }
+    .site-nav ul {
+      display: flex;
+      gap: 1.75rem;
+      list-style: none;
+    }
+    .site-nav ul a {
+      color: var(--text-muted);
+      font-size: 0.94rem;
+      transition: color 0.15s ease;
+    }
+    .site-nav ul a:hover { color: var(--text); }
+
+    main { padding: 4.5rem 0 5rem; }
+
+    article .eyebrow {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-dim);
+      margin-bottom: 0.9rem;
+    }
+
+    article h1 {
+      font-size: clamp(2rem, 3.6vw, 2.5rem);
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      margin-bottom: 0.5rem;
+    }
+
+    article .meta {
+      color: var(--text-dim);
+      font-size: 0.92rem;
+      margin-bottom: 2.5rem;
+    }
+
+    article h2 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin: 2.5rem 0 0.85rem;
+      color: var(--text);
+    }
+
+    article p {
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      font-size: 1.02rem;
+    }
+    article p a {
+      color: var(--text);
+      border-bottom: 1px solid var(--border-strong);
+      transition: border-color 0.15s ease;
+    }
+    article p a:hover { border-color: var(--accent); }
+
+    article ul {
+      color: var(--text-muted);
+      margin: 0 0 1rem 1.25rem;
+    }
+    article ul li { margin-bottom: 0.4rem; }
+
+    footer {
+      padding: 2.5rem 0 3rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-dim);
+      font-size: 0.87rem;
+    }
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    footer a {
+      color: var(--text-muted);
+      transition: color 0.15s ease;
+    }
+    footer a:hover { color: var(--text); }
+    footer .legal-links {
+      display: flex;
+      gap: 1.25rem;
+    }
+
+    @media (max-width: 640px) {
+      .site-nav { padding: 0.9rem 0; }
+      .site-nav ul { gap: 1.25rem; }
+      main { padding: 3rem 0 4rem; }
+      footer .container { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="nav-container">
-            <nav>
-                <a href="/">Home</a>
-            </nav>
-        </div>
-    </header>
-    <main>
-        <div class="container">
-            <h1>Privacy Policy</h1>
-            <p>This privacy policy sets out how Shane Golding uses and protects any information that you give Shane Golding when you use this website.</p>
-            <p>Shane Golding is committed to ensuring that your privacy is protected. Should we ask you to provide certain information by which you can be identified when using this website, then you can be assured that it will only be used in accordance with this privacy statement.</p>
-            <p>Shane Golding may change this policy from time to time by updating this page. You should check this page from time to time to ensure that you are happy with any changes.</p>
-            <h2>What we collect</h2>
-            <p>We may collect the following information:</p>
-            <ul>
-                <li>name and job title</li>
-                <li>contact information including email address</li>
-                <li>demographic information such as postcode, preferences and interests</li>
-                <li>other information relevant to customer surveys and/or offers</li>
-            </ul>
-            <h2>What we do with the information we gather</h2>
-            <p>We require this information to understand your needs and provide you with a better service, and in particular for the following reasons:</p>
-            <ul>
-                <li>Internal record keeping.</li>
-                <li>We may use the information to improve our products and services.</li>
-                <li>We may periodically send promotional emails about new products, special offers or other information which we think you may find interesting using the email address which you have provided.</li>
-                <li>From time to time, we may also use your information to contact you for market research purposes. We may contact you by email, phone, fax or mail. We may use the information to customise the website according to your interests.</li>
-            </ul>
-            <h2>Security</h2>
-            <p>We are committed to ensuring that your information is secure. In order to prevent unauthorised access or disclosure, we have put in place suitable physical, electronic and managerial procedures to safeguard and secure the information we collect online.</p>
-            <h2>How we use cookies</h2>
-            <p>A cookie is a small file which asks permission to be placed on your computer's hard drive. Once you agree, the file is added and the cookie helps analyse web traffic or lets you know when you visit a particular site. Cookies allow web applications to respond to you as an individual. The web application can tailor its operations to your needs, likes and dislikes by gathering and remembering information about your preferences.</p>
-            <p>We use traffic log cookies to identify which pages are being used. This helps us analyse data about webpage traffic and improve our website in order to tailor it to customer needs. We only use this information for statistical analysis purposes and then the data is removed from the system.</p>
-            <p>Overall, cookies help us provide you with a better website, by enabling us to monitor which pages you find useful and which you do not. A cookie in no way gives us access to your computer or any information about you, other than the data you choose to share with us.</p>
-            <p>You can choose to accept or decline cookies. Most web browsers automatically accept cookies, but you can usually modify your browser setting to decline cookies if you prefer. This may prevent you from taking full advantage of the website.</p>
-            <h2>Links to other websites</h2>
-            <p>Our website may contain links to other websites of interest. However, once you have used these links to leave our site, you should note that we do not have any control over that other website. Therefore, we cannot be responsible for the protection and privacy of any information which you provide whilst visiting such sites and such sites are not governed by this privacy statement. You should exercise caution and look at the privacy statement applicable to the website in question.</p>
-            <h2>Controlling your personal information</h2>
-            <p>You may choose to restrict the collection or use of your personal information in the following ways:</p>
-            <ul>
-                <li>whenever you are asked to fill in a form on the website, look for the box that you can click to indicate that you do not want the information to be used by anybody for direct marketing purposes</li>
-                <li>if you have previously agreed to us using your personal information for direct marketing purposes, you may change your mind at any time by writing to or emailing us at [email protected]</li>
-            </ul>
-            <p>We will not sell, distribute or lease your personal information to third parties unless we have your permission or are required by law to do so. We may use your personal information to send you promotional information about third parties which we think you may find interesting if you tell us that you wish this to happen.</p>
-            <p>You may request details of personal information which we hold about you under the Data Protection Act 1998. A small fee will be payable. If you would like a copy of the information held on you please write to [address].</p>
-            <p>If you believe that any information we are holding on you is incorrect or incomplete, please write to or email us as soon as possible, at the above address. We will promptly correct any information found to be incorrect.</p>
-        </div>
-    </main>
+  <nav class="site-nav">
+    <div class="container">
+      <a href="/" class="brand">Shane Golding</a>
+      <ul>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#work">Work</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <article class="container">
+      <p class="eyebrow">Legal</p>
+      <h1>Privacy Policy</h1>
+      <p class="meta">Last updated April 2026</p>
+
+      <p>This site (<a href="https://shanegolding.net">shanegolding.net</a>) is a personal, static website. It exists to share work and writing — nothing is sold, and no accounts can be created.</p>
+
+      <h2>Information I collect</h2>
+      <p>I do not operate any servers that collect personal data from visitors. The site runs as static files, and I do not use analytics, advertising trackers, or third-party scripts that profile you.</p>
+      <p>If you send me email, I will naturally receive whatever information is in your message (your name, email address, and the contents). I use that only to reply, and I don't share it.</p>
+
+      <h2>Cookies and local storage</h2>
+      <p>The site does not set tracking cookies. The Snake demo on the home page stores a single high-score value in your browser's <code>localStorage</code>. That value stays on your device and is never transmitted. You can clear it at any time through your browser.</p>
+
+      <h2>Hosting</h2>
+      <p>The site is hosted on GitHub Pages. GitHub, as the host, may log basic request information (such as IP addresses and user-agent strings) for security and abuse-prevention purposes. Those logs are governed by GitHub's own privacy policies.</p>
+
+      <h2>Third-party fonts</h2>
+      <p>The site loads typefaces from Google Fonts. When your browser fetches those files, Google may receive standard request metadata. If that's a concern, most browsers allow blocking third-party font requests.</p>
+
+      <h2>External links</h2>
+      <p>Pages here may link to other sites. Once you follow an external link, this policy no longer applies — please review the privacy practices of whichever site you land on.</p>
+
+      <h2>Changes</h2>
+      <p>If this policy changes, the updated version will appear on this page with a new date at the top.</p>
+
+      <h2>Contact</h2>
+      <p>Questions about privacy? Email <a href="mailto:mail@shanegolding.net">mail@shanegolding.net</a>.</p>
+    </article>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> Shane Golding</p>
+      <div class="legal-links">
+        <a href="/about.html">About</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
