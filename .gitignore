@@ -1,2 +1,41 @@
 .gemini/
 gha-creds-*.json
+
+# Added by Hermes/Bender safe project setup
+# Local secrets / credentials
+.env
+.env.*
+!.env.example
+password.txt
+credentials.json
+token.json
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+# Logs
+*.log
+logs/
+# Caches / build output
+.gocache/
+node_modules/
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+dist/
+build/
+out/
+_builddir/
+*.o
+*.so
+*.dll
+*.dylib
+*.exe
+# OS/editor junk
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
