@@ -1,593 +1,188 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Shane Golding</title>
-  <meta name="description" content="Personal website of Shane Golding — writing, projects, and notes.">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shane Golding — Web, Linux &amp; game projects</title>
+  <meta name="description" content="Selected websites, Linux tools, developer utilities, and browser experiments by Shane Golding.">
   <meta name="author" content="Shane Golding">
   <meta name="robots" content="index, follow">
-  <meta property="og:title" content="Shane Golding">
+  <meta name="theme-color" content="#0b0b0c">
+  <link rel="canonical" href="https://shanegolding.net/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/site.css">
+
+  <meta property="og:site_name" content="Shane Golding">
+  <meta property="og:title" content="Shane Golding — Web, Linux &amp; game projects">
+  <meta property="og:description" content="Selected websites, Linux tools, developer utilities, and browser experiments by Shane Golding.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://shanegolding.net">
-  <meta property="og:description" content="Personal website of Shane Golding — writing, projects, and notes.">
-  <meta property="og:image" content="https://shanegolding.net/og-image.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #0b0b0c;
-      --surface: #141416;
-      --surface-hover: #18181b;
-      --border: rgba(255, 255, 255, 0.07);
-      --border-strong: rgba(255, 255, 255, 0.14);
-      --text: #ededed;
-      --text-muted: #9a9a9d;
-      --text-dim: #6c6c6f;
-      --accent: #d4a373;
-      --radius: 6px;
-      --max-width: 720px;
-    }
+  <meta property="og:url" content="https://shanegolding.net/">
+  <meta property="og:image" content="https://shanegolding.net/assets/images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Shane Golding — small, practical software for the web, Linux, and games">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Shane Golding — Web, Linux &amp; game projects">
+  <meta name="twitter:description" content="Selected websites, Linux tools, developer utilities, and browser experiments by Shane Golding.">
+  <meta name="twitter:image" content="https://shanegolding.net/assets/images/og-image.png">
+  <meta name="twitter:image:alt" content="Shane Golding — small, practical software for the web, Linux, and games">
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.65;
-      font-size: 16px;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      font-feature-settings: 'cv11', 'ss01';
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Shane Golding",
+      "url": "https://shanegolding.net/",
+      "email": "mailto:mail@shanegolding.net"
     }
-
-    a { color: inherit; text-decoration: none; }
-
-    ::selection { background: rgba(212, 163, 115, 0.25); color: var(--text); }
-
-    .container {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    /* Navigation */
-    .site-nav {
-      border-bottom: 1px solid var(--border);
-      padding: 1.1rem 0;
-      position: sticky;
-      top: 0;
-      background: rgba(11, 11, 12, 0.82);
-      backdrop-filter: saturate(140%) blur(10px);
-      -webkit-backdrop-filter: saturate(140%) blur(10px);
-      z-index: 10;
-    }
-    .site-nav .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .site-nav .brand {
-      font-weight: 600;
-      font-size: 0.98rem;
-      letter-spacing: -0.01em;
-    }
-    .site-nav ul {
-      display: flex;
-      gap: 1.75rem;
-      list-style: none;
-    }
-    .site-nav ul a {
-      color: var(--text-muted);
-      font-size: 0.94rem;
-      transition: color 0.15s ease;
-    }
-    .site-nav ul a:hover { color: var(--text); }
-
-    /* Hero */
-    .hero {
-      padding: 6rem 0 4.5rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .hero h1 {
-      font-size: clamp(2.25rem, 4.2vw, 2.9rem);
-      font-weight: 600;
-      letter-spacing: -0.028em;
-      line-height: 1.12;
-      margin-bottom: 1.1rem;
-    }
-    .hero .tagline {
-      font-size: 1.12rem;
-      color: var(--text-muted);
-      max-width: 560px;
-      line-height: 1.6;
-    }
-
-    /* Section primitives */
-    section.content {
-      padding: 4rem 0;
-      border-bottom: 1px solid var(--border);
-    }
-    section.content:last-of-type { border-bottom: none; }
-
-    section.content h2 {
-      font-size: 0.78rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--text-dim);
-      margin-bottom: 1.75rem;
-    }
-
-    section.content p {
-      color: var(--text-muted);
-      margin-bottom: 1rem;
-      font-size: 1.02rem;
-    }
-    section.content p:last-child { margin-bottom: 0; }
-    section.content p a {
-      color: var(--text);
-      border-bottom: 1px solid var(--border-strong);
-      transition: border-color 0.15s ease;
-    }
-    section.content p a:hover { border-color: var(--accent); }
-
-    /* Projects */
-    .projects {
-      display: grid;
-      gap: 0.75rem;
-    }
-    .project {
-      display: block;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.4rem 1.5rem;
-      transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
-    }
-    .project:hover {
-      border-color: var(--border-strong);
-      background: var(--surface);
-    }
-    .project h3 {
-      font-size: 1.02rem;
-      font-weight: 600;
-      margin-bottom: 0.3rem;
-      color: var(--text);
-    }
-    .project p {
-      color: var(--text-muted);
-      font-size: 0.94rem;
-      margin-bottom: 0;
-      line-height: 1.55;
-    }
-
-    /* Contact */
-    .contact-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.55rem;
-      border: 1px solid var(--border-strong);
-      padding: 0.6rem 1.15rem;
-      border-radius: var(--radius);
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--text);
-      transition: background 0.15s ease, border-color 0.15s ease;
-    }
-    .contact-link:hover {
-      background: var(--surface);
-      border-color: rgba(255, 255, 255, 0.22);
-    }
-    .contact-link svg {
-      width: 14px;
-      height: 14px;
-      opacity: 0.7;
-    }
-
-    /* Playground / Snake */
-    .playground {
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      background: var(--surface);
-    }
-    .playground h3 {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 0.3rem;
-    }
-    .playground .hint {
-      color: var(--text-dim);
-      font-size: 0.88rem;
-      margin-bottom: 1.25rem;
-    }
-    .game-wrapper {
-      display: flex;
-      gap: 1.5rem;
-      align-items: flex-start;
-      flex-wrap: wrap;
-    }
-    #gameCanvas {
-      background: #070708;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      display: block;
-      touch-action: none;
-      image-rendering: pixelated;
-    }
-    .game-sidebar {
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
-      min-width: 180px;
-      flex: 1;
-    }
-    .scoreboard {
-      display: flex;
-      gap: 1.5rem;
-      font-size: 0.88rem;
-      color: var(--text-muted);
-    }
-    .scoreboard strong {
-      color: var(--text);
-      font-weight: 500;
-      font-variant-numeric: tabular-nums;
-      margin-left: 0.35rem;
-    }
-    .game-buttons {
-      display: flex;
-      gap: 0.5rem;
-    }
-    .game-buttons button {
-      flex: 1;
-      background: transparent;
-      color: var(--text);
-      border: 1px solid var(--border-strong);
-      padding: 0.45rem 0.75rem;
-      border-radius: 4px;
-      font-size: 0.87rem;
-      font-weight: 500;
-      cursor: pointer;
-      font-family: inherit;
-      transition: background 0.15s ease, border-color 0.15s ease;
-    }
-    .game-buttons button:hover { background: rgba(255, 255, 255, 0.04); }
-    .game-buttons button:active { background: rgba(255, 255, 255, 0.08); }
-    .game-help {
-      color: var(--text-dim);
-      font-size: 0.82rem;
-      line-height: 1.55;
-    }
-
-    /* Footer */
-    footer {
-      padding: 2.5rem 0 3rem;
-      border-top: 1px solid var(--border);
-      color: var(--text-dim);
-      font-size: 0.87rem;
-    }
-    footer .container {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    footer a {
-      color: var(--text-muted);
-      transition: color 0.15s ease;
-    }
-    footer a:hover { color: var(--text); }
-    footer .legal-links {
-      display: flex;
-      gap: 1.25rem;
-    }
-
-    @media (max-width: 640px) {
-      .site-nav { padding: 0.9rem 0; }
-      .site-nav ul { gap: 1.25rem; }
-      .hero { padding: 4rem 0 3rem; }
-      section.content { padding: 3rem 0; }
-      .game-wrapper { flex-direction: column; align-items: stretch; }
-      #gameCanvas { width: 100% !important; height: auto !important; max-width: 360px; margin: 0 auto; }
-      .game-sidebar { min-width: 0; }
-      footer .container { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
-    }
-  </style>
+  </script>
 </head>
 <body>
-  <nav class="site-nav">
-    <div class="container">
-      <a href="/" class="brand">Shane Golding</a>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <nav class="site-nav" aria-label="Primary">
+    <div class="container nav-inner">
+      <a class="brand" href="/" aria-label="Shane Golding, home" aria-current="page">
+        <span class="brand-full" aria-hidden="true">Shane Golding</span>
+        <span class="brand-short" aria-hidden="true">SG</span>
+      </a>
       <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#work">Work</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="/#work">Work</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/#contact">Contact</a></li>
       </ul>
     </div>
   </nav>
 
-  <main>
-    <section class="hero container">
-      <h1>Shane Golding</h1>
-      <p class="tagline">Personal site — a place for my work, writing, and the occasional experiment.</p>
-    </section>
+  <main id="main-content" tabindex="-1">
+    <header class="hero container">
+      <p class="eyebrow">Web · Linux · Games</p>
+      <h1>Small, practical software for the web, Linux, and the occasional game.</h1>
+      <p class="lead">I’m Shane. I build focused tools, websites, and experiments with simple technology and attention to the details that make them useful.</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#work">See selected work</a>
+        <a class="button" href="mailto:mail@shanegolding.net">Email me</a>
+      </div>
+    </header>
 
-    <section id="about" class="content container">
-      <h2>About</h2>
-      <p>I'm Shane. This site is where I collect projects and notes worth keeping in one place. A fuller bio is on the way.</p>
-    </section>
+    <section id="work" class="content container" aria-labelledby="work-heading">
+      <p class="section-label">Selected work</p>
+      <h2 id="work-heading">Things I’ve been building</h2>
+      <p class="section-intro">A mix of systems work, developer tooling, and browser experiments—kept deliberately focused and built to solve a specific problem.</p>
 
-    <section id="work" class="content container">
-      <h2>Selected Work</h2>
       <div class="projects">
-        <div class="project">
-          <h3>More soon</h3>
-          <p>Projects and write-ups will land here as I have time to share them.</p>
-        </div>
+        <article class="project-card is-featured">
+          <p class="project-kicker">Linux service</p>
+          <h3>Low-latency webcam streaming</h3>
+          <p>A native service that publishes a USB camera for browser and media-player viewing, with health checks, startup recovery, and a documented rollback path.</p>
+          <ul class="project-meta" aria-label="Technologies">
+            <li>Go</li>
+            <li>systemd</li>
+            <li>Streaming</li>
+          </ul>
+        </article>
+
+        <article class="project-card">
+          <p class="project-kicker">Developer tooling</p>
+          <h3>Discord assistant bridge</h3>
+          <p>A TypeScript bridge for persistent assistant threads, queued requests, human approvals, reminders, voice replies, and auditable activity.</p>
+          <ul class="project-meta" aria-label="Technologies">
+            <li>TypeScript</li>
+            <li>Discord</li>
+            <li>Automation</li>
+          </ul>
+        </article>
+
+        <article class="project-card is-link">
+          <a class="project-card-link" href="#playground">
+            <p class="project-kicker">Browser experiment</p>
+            <h3>Accessible Snake</h3>
+            <p>A canvas game with scoped keyboard controls, touch-friendly direction buttons, persistent high scores, and explicit game-state feedback.</p>
+            <ul class="project-meta" aria-label="Technologies">
+              <li>JavaScript</li>
+              <li>Canvas</li>
+              <li>Accessibility</li>
+            </ul>
+            <span class="project-arrow" aria-hidden="true">Play below ↓</span>
+          </a>
+        </article>
       </div>
     </section>
 
-    <section id="playground" class="content container">
-      <h2>Playground</h2>
-      <div class="playground">
-        <h3>Snake</h3>
-        <p class="hint">A small demo. Arrow keys or WASD on desktop; tap or swipe on mobile.</p>
-        <div class="game-wrapper">
-          <canvas id="gameCanvas" width="360" height="360" style="width:360px;height:360px" aria-label="Snake game"></canvas>
+    <section id="contact" class="content container" aria-labelledby="contact-heading">
+      <div class="contact-panel">
+        <div>
+          <p class="section-label">Contact</p>
+          <h2 id="contact-heading">Have something in mind?</h2>
+          <p>Email is the simplest way to reach me.</p>
+        </div>
+        <a class="button button-primary" href="mailto:mail@shanegolding.net">mail@shanegolding.net</a>
+      </div>
+    </section>
+
+    <section id="playground" class="content container" aria-labelledby="playground-heading">
+      <p class="section-label">Playground</p>
+      <h2 id="playground-heading">A small browser experiment</h2>
+      <p class="section-intro">The best projects often start as a compact idea worth trying.</p>
+
+      <div
+        id="snakeGame"
+        class="playground"
+        role="group"
+        tabindex="0"
+        aria-labelledby="snake-heading"
+        aria-describedby="gameInstructions gameStatus"
+      >
+        <div class="game-header">
+          <h3 id="snake-heading">Snake</h3>
+          <p id="gameInstructions" class="game-instructions">Select Start, then focus this game area and use arrow keys or WASD. On smaller screens, use the direction buttons.</p>
+        </div>
+
+        <div class="game-layout">
+          <canvas id="gameCanvas" width="360" height="360" aria-hidden="true">A visual Snake game board.</canvas>
+
           <div class="game-sidebar">
-            <div class="scoreboard">
-              <span>Score<strong id="score">0</strong></span>
-              <span>Best<strong id="highScore">0</strong></span>
+            <dl class="scoreboard">
+              <div><dt>Score</dt><dd><output id="score">0</output></dd></div>
+              <div><dt>Best</dt><dd><output id="highScore">0</output></dd></div>
+            </dl>
+
+            <p id="gameStatus" class="game-status" role="status" aria-live="polite" aria-atomic="true">Ready. Select Start, then use the game controls.</p>
+
+            <div class="game-buttons" aria-label="Game controls">
+              <button id="startBtn" class="button" type="button">Start</button>
+              <button id="pauseBtn" class="button" type="button" disabled>Pause</button>
+              <button id="resetBtn" class="button" type="button">Reset</button>
             </div>
-            <div class="game-buttons">
-              <button id="startBtn" type="button">Start</button>
-              <button id="pauseBtn" type="button">Pause</button>
-              <button id="resetBtn" type="button">Reset</button>
+
+            <div class="direction-controls" role="group" aria-label="Direction controls">
+              <button class="direction-button" type="button" data-direction="up" aria-label="Move up" disabled>↑</button>
+              <button class="direction-button" type="button" data-direction="left" aria-label="Move left" disabled>←</button>
+              <button class="direction-button" type="button" data-direction="down" aria-label="Move down" disabled>↓</button>
+              <button class="direction-button" type="button" data-direction="right" aria-label="Move right" disabled>→</button>
             </div>
-            <p class="game-help">Your best score is saved locally in this browser.</p>
+
+            <p class="game-note">Your best score is stored only in this browser. The game pauses when the page is hidden.</p>
           </div>
         </div>
       </div>
     </section>
-
-    <section id="contact" class="content container">
-      <h2>Contact</h2>
-      <p>The best way to reach me is by email.</p>
-      <p style="margin-top: 1.25rem;">
-        <a class="contact-link" href="mailto:mail@shanegolding.net">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect x="3" y="5" width="18" height="14" rx="2"/>
-            <path d="m3 7 9 6 9-6"/>
-          </svg>
-          mail@shanegolding.net
-        </a>
-      </p>
-    </section>
   </main>
 
-  <footer>
-    <div class="container">
-      <p>© <span id="year"></span> Shane Golding</p>
-      <div class="legal-links">
-        <a href="/about.html">About</a>
-        <a href="/privacy.html">Privacy</a>
-        <a href="/terms.html">Terms</a>
-      </div>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span data-current-year>2026</span> Shane Golding</p>
+      <nav aria-label="Legal">
+        <ul class="footer-links">
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/privacy.html">Privacy</a></li>
+          <li><a href="/terms.html">Terms</a></li>
+        </ul>
+      </nav>
     </div>
   </footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    /* Snake Game */
-    (function () {
-      const canvas = document.getElementById('gameCanvas');
-      const ctx = canvas.getContext('2d');
-
-      let gridSize = 18;
-      const cellPadding = 1;
-      let cellSize;
-
-      let snake = [{ x: 9, y: 9 }];
-      let dir = { x: 0, y: 0 };
-      let nextDir = { x: 0, y: 0 };
-      let food = null;
-      let score = 0;
-      let highScore = parseInt(localStorage.getItem('sg_snake_high') || '0', 10) || 0;
-      let running = false;
-      let gameInterval = null;
-      let speed = 120;
-
-      const scoreEl = document.getElementById('score');
-      const highEl = document.getElementById('highScore');
-      const startBtn = document.getElementById('startBtn');
-      const pauseBtn = document.getElementById('pauseBtn');
-      const resetBtn = document.getElementById('resetBtn');
-
-      highEl.textContent = highScore;
-      scoreEl.textContent = score;
-
-      function resizeGameCanvas() {
-        const dpr = window.devicePixelRatio || 1;
-        const internal = gridSize * 18;
-        canvas.width = internal * dpr;
-        canvas.height = internal * dpr;
-        cellSize = canvas.width / gridSize;
-      }
-      window.addEventListener('resize', resizeGameCanvas);
-      resizeGameCanvas();
-
-      function resetGame() {
-        snake = [{ x: Math.floor(gridSize / 2), y: Math.floor(gridSize / 2) }];
-        dir = { x: 0, y: 0 };
-        nextDir = { x: 0, y: 0 };
-        score = 0;
-        updateScore();
-        spawnFood();
-        stopLoop();
-        running = false;
-        pauseBtn.textContent = 'Pause';
-      }
-
-      function startGame() {
-        if (running) return;
-        running = true;
-        if (dir.x === 0 && dir.y === 0 && nextDir.x === 0 && nextDir.y === 0) {
-          dir = { x: 1, y: 0 };
-        }
-        startLoop();
-      }
-
-      function pauseGame() {
-        running = false;
-        stopLoop();
-      }
-
-      function startLoop() {
-        stopLoop();
-        gameInterval = setInterval(tick, speed);
-      }
-      function stopLoop() {
-        if (gameInterval) { clearInterval(gameInterval); gameInterval = null; }
-      }
-
-      function updateScore() {
-        scoreEl.textContent = score;
-        if (score > highScore) {
-          highScore = score;
-          highEl.textContent = highScore;
-          localStorage.setItem('sg_snake_high', highScore.toString());
-        }
-      }
-
-      function spawnFood() {
-        let tries = 0;
-        while (tries < 1000) {
-          const fx = Math.floor(Math.random() * gridSize);
-          const fy = Math.floor(Math.random() * gridSize);
-          const collision = snake.some(s => s.x === fx && s.y === fy);
-          if (!collision) { food = { x: fx, y: fy }; return; }
-          tries++;
-        }
-        food = null;
-      }
-
-      function tick() {
-        if ((nextDir.x !== -dir.x || nextDir.y !== -dir.y) && (nextDir.x !== 0 || nextDir.y !== 0)) {
-          dir = { ...nextDir };
-        }
-        if (dir.x === 0 && dir.y === 0) return;
-
-        const head = { x: snake[0].x + dir.x, y: snake[0].y + dir.y };
-        if (head.x < 0) head.x = gridSize - 1;
-        if (head.x >= gridSize) head.x = 0;
-        if (head.y < 0) head.y = gridSize - 1;
-        if (head.y >= gridSize) head.y = 0;
-
-        if (snake.some(seg => seg.x === head.x && seg.y === head.y)) {
-          pauseGame();
-          setTimeout(() => { resetGame(); draw(); }, 400);
-          return;
-        }
-
-        snake.unshift(head);
-
-        if (food && head.x === food.x && head.y === food.y) {
-          score += 1;
-          updateScore();
-          spawnFood();
-          if (score % 5 === 0 && speed > 45) {
-            speed = Math.max(45, speed - 6);
-            if (running) startLoop();
-          }
-        } else {
-          snake.pop();
-        }
-
-        draw();
-      }
-
-      function draw() {
-        ctx.fillStyle = '#070708';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-        if (food) drawCell(food.x, food.y, '#d4a373');
-
-        for (let i = 0; i < snake.length; i++) {
-          const s = snake[i];
-          const alpha = 0.55 + (1 - i / snake.length) * 0.45;
-          const color = i === 0 ? '#f5f5f5' : `rgba(237, 237, 237, ${alpha})`;
-          drawCell(s.x, s.y, color, i === 0);
-        }
-      }
-
-      function drawCell(x, y, color, isHead) {
-        const pad = cellPadding;
-        const px = Math.round(x * cellSize) + pad;
-        const py = Math.round(y * cellSize) + pad;
-        const size = Math.round(cellSize) - pad * 2;
-        ctx.fillStyle = color;
-        ctx.fillRect(px, py, size, size);
-        if (isHead) {
-          ctx.strokeStyle = 'rgba(0, 0, 0, 0.15)';
-          ctx.lineWidth = Math.max(1, Math.round(cellSize * 0.04));
-          ctx.strokeRect(px + 0.5, py + 0.5, size - 1, size - 1);
-        }
-      }
-
-      window.addEventListener('keydown', (e) => {
-        const key = e.key;
-        if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'w', 'a', 's', 'd', 'W', 'A', 'S', 'D'].includes(key)) {
-          e.preventDefault();
-          if (key === 'ArrowUp' || key === 'w' || key === 'W') setDirection(0, -1);
-          if (key === 'ArrowDown' || key === 's' || key === 'S') setDirection(0, 1);
-          if (key === 'ArrowLeft' || key === 'a' || key === 'A') setDirection(-1, 0);
-          if (key === 'ArrowRight' || key === 'd' || key === 'D') setDirection(1, 0);
-        } else if (key === ' ' || key === 'Spacebar') {
-          if (running) pauseGame(); else startGame();
-        }
-      });
-
-      function setDirection(x, y) {
-        if (dir.x === -x && dir.y === -y) return;
-        nextDir = { x, y };
-      }
-
-      startBtn.addEventListener('click', () => { startGame(); });
-      pauseBtn.addEventListener('click', () => {
-        if (running) { pauseGame(); pauseBtn.textContent = 'Resume'; }
-        else { startGame(); pauseBtn.textContent = 'Pause'; }
-      });
-      resetBtn.addEventListener('click', () => { resetGame(); draw(); });
-
-      let touchStart = null;
-      canvas.addEventListener('touchstart', (ev) => {
-        const t = ev.touches[0];
-        touchStart = { x: t.clientX, y: t.clientY, time: Date.now() };
-      }, { passive: true });
-      canvas.addEventListener('touchmove', (ev) => { ev.preventDefault(); }, { passive: false });
-      canvas.addEventListener('touchend', (ev) => {
-        if (!touchStart) return;
-        const t = ev.changedTouches[0];
-        const dx = t.clientX - touchStart.x;
-        const dy = t.clientY - touchStart.y;
-        const adx = Math.abs(dx), ady = Math.abs(dy);
-        if (Math.max(adx, ady) > 20) {
-          if (adx > ady) { if (dx > 0) setDirection(1, 0); else setDirection(-1, 0); }
-          else { if (dy > 0) setDirection(0, 1); else setDirection(0, -1); }
-        } else {
-          if (running) pauseGame(); else startGame();
-        }
-        touchStart = null;
-      });
-
-      resetGame();
-      draw();
-    })();
-  </script>
+  <script type="module" src="/assets/js/site.js"></script>
+  <script type="module" src="/assets/js/snake-ui.js"></script>
 </body>
 </html>

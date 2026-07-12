@@ -1,24 +1,24 @@
-# GEMINI.md
+# Repository overview
 
-## Project Overview
+This is a dependency-free static website for Shane Golding, deployed with GitHub Pages.
 
-This is a simple, single-page personal website for Shane Golding. It is a static website with no build process. The `index.html` file contains all the HTML, CSS, and JavaScript. The website is configured to be served from the custom domain `shanegolding.net`.
+## Key files
 
-The website features:
-*   A particle animation background.
-*   A typing animation for the name "Shane Golding".
-*   An "About Me" section.
-*   A "Projects" section, which includes an interactive Snake game.
-*   A "Contact" section with a mailto link.
+- `index.html` — home, selected projects, contact, and accessible Snake UI
+- `about.html`, `privacy.html`, `terms.html`, `404.html` — secondary pages
+- `assets/css/site.css` — shared responsive design system
+- `assets/js/snake-engine.js` — testable game rules and state
+- `assets/js/snake-ui.js` — DOM, Canvas, timers, input, and storage integration
+- `scripts/check-site.mjs`, `tests/` — no-dependency quality checks
 
-## Building and Running
+## Development
 
-This is a static website, so there is no build process. To run the website, you can open the `index.html` file in a web browser.
+Serve the repository rather than opening files directly because the JavaScript uses ES modules:
 
-## Development Conventions
+```bash
+python3 -m http.server 8000
+npm run check
+npm test
+```
 
-All of the code is contained within the `index.html` file.
-*   The CSS is in a `<style>` block in the `<head>`.
-*   The JavaScript is in a `<script>` block at the end of the `<body>`.
-
-There are no external libraries used, except for Google Fonts. The JavaScript is written in plain ES6.
+Keep content factual, preserve accessibility behavior, and run both checks before proposing changes.

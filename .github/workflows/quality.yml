@@ -1,0 +1,24 @@
+name: Website quality
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
+      - name: Check JavaScript syntax
+        run: |
+          node --check assets/js/site.js
+          node --check assets/js/snake-engine.js
+          node --check assets/js/snake-ui.js
+      - name: Run structural checks
+        run: node scripts/check-site.mjs
+      - name: Run tests
+        run: npm test

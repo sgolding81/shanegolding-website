@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Shane Golding</title>
+  <rect width="64" height="64" rx="14" fill="#151517"/>
+  <path d="M19 19h27v8H28v6h15v8H28v12h-9V19Z" fill="#f1f1f2"/>
+  <circle cx="47" cy="48" r="6" fill="#d8a574"/>
+</svg>

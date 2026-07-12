@@ -1,215 +1,95 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Terms — Shane Golding</title>
-  <meta name="description" content="Terms of use for shanegolding.net.">
+  <meta name="description" content="Terms of use for shanegolding.net and its original content, code, and interactive experiments.">
+  <meta name="author" content="Shane Golding">
   <meta name="robots" content="index, follow">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #0b0b0c;
-      --surface: #141416;
-      --border: rgba(255, 255, 255, 0.07);
-      --border-strong: rgba(255, 255, 255, 0.14);
-      --text: #ededed;
-      --text-muted: #9a9a9d;
-      --text-dim: #6c6c6f;
-      --accent: #d4a373;
-      --max-width: 720px;
-    }
+  <meta name="theme-color" content="#0b0b0c">
+  <link rel="canonical" href="https://shanegolding.net/terms.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/site.css">
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.65;
-      font-size: 16px;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    a { color: inherit; text-decoration: none; }
-
-    ::selection { background: rgba(212, 163, 115, 0.25); color: var(--text); }
-
-    .container {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    .site-nav {
-      border-bottom: 1px solid var(--border);
-      padding: 1.1rem 0;
-      position: sticky;
-      top: 0;
-      background: rgba(11, 11, 12, 0.82);
-      backdrop-filter: saturate(140%) blur(10px);
-      -webkit-backdrop-filter: saturate(140%) blur(10px);
-      z-index: 10;
-    }
-    .site-nav .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .site-nav .brand {
-      font-weight: 600;
-      font-size: 0.98rem;
-      letter-spacing: -0.01em;
-    }
-    .site-nav ul {
-      display: flex;
-      gap: 1.75rem;
-      list-style: none;
-    }
-    .site-nav ul a {
-      color: var(--text-muted);
-      font-size: 0.94rem;
-      transition: color 0.15s ease;
-    }
-    .site-nav ul a:hover { color: var(--text); }
-
-    main { padding: 4.5rem 0 5rem; }
-
-    article .eyebrow {
-      font-size: 0.78rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--text-dim);
-      margin-bottom: 0.9rem;
-    }
-
-    article h1 {
-      font-size: clamp(2rem, 3.6vw, 2.5rem);
-      font-weight: 600;
-      letter-spacing: -0.025em;
-      line-height: 1.15;
-      margin-bottom: 0.5rem;
-    }
-
-    article .meta {
-      color: var(--text-dim);
-      font-size: 0.92rem;
-      margin-bottom: 2.5rem;
-    }
-
-    article h2 {
-      font-size: 1.15rem;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      margin: 2.5rem 0 0.85rem;
-      color: var(--text);
-    }
-
-    article p {
-      color: var(--text-muted);
-      margin-bottom: 1rem;
-      font-size: 1.02rem;
-    }
-    article p a {
-      color: var(--text);
-      border-bottom: 1px solid var(--border-strong);
-      transition: border-color 0.15s ease;
-    }
-    article p a:hover { border-color: var(--accent); }
-
-    footer {
-      padding: 2.5rem 0 3rem;
-      border-top: 1px solid var(--border);
-      color: var(--text-dim);
-      font-size: 0.87rem;
-    }
-    footer .container {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    footer a {
-      color: var(--text-muted);
-      transition: color 0.15s ease;
-    }
-    footer a:hover { color: var(--text); }
-    footer .legal-links {
-      display: flex;
-      gap: 1.25rem;
-    }
-
-    @media (max-width: 640px) {
-      .site-nav { padding: 0.9rem 0; }
-      .site-nav ul { gap: 1.25rem; }
-      main { padding: 3rem 0 4rem; }
-      footer .container { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
-    }
-  </style>
+  <meta property="og:site_name" content="Shane Golding">
+  <meta property="og:title" content="Terms — Shane Golding">
+  <meta property="og:description" content="Terms of use for shanegolding.net and its original content, code, and interactive experiments.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://shanegolding.net/terms.html">
+  <meta property="og:image" content="https://shanegolding.net/assets/images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Shane Golding — small, practical software for the web, Linux, and games">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Terms — Shane Golding">
+  <meta name="twitter:description" content="Terms of use for shanegolding.net and its original content, code, and interactive experiments.">
+  <meta name="twitter:image" content="https://shanegolding.net/assets/images/og-image.png">
+  <meta name="twitter:image:alt" content="Shane Golding — small, practical software for the web, Linux, and games">
 </head>
 <body>
-  <nav class="site-nav">
-    <div class="container">
-      <a href="/" class="brand">Shane Golding</a>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <nav class="site-nav" aria-label="Primary">
+    <div class="container nav-inner">
+      <a class="brand" href="/" aria-label="Shane Golding, home">
+        <span class="brand-full" aria-hidden="true">Shane Golding</span>
+        <span class="brand-short" aria-hidden="true">SG</span>
+      </a>
       <ul>
-        <li><a href="/#about">About</a></li>
         <li><a href="/#work">Work</a></li>
+        <li><a href="/about.html">About</a></li>
         <li><a href="/#contact">Contact</a></li>
       </ul>
     </div>
   </nav>
 
-  <main>
-    <article class="container">
-      <p class="eyebrow">Legal</p>
-      <h1>Terms of Use</h1>
-      <p class="meta">Last updated April 2026</p>
+  <main id="main-content" class="container article-page" tabindex="-1">
+    <article>
+      <header class="article-header">
+        <p class="eyebrow">Legal</p>
+        <h1>Terms of Use</h1>
+        <p class="article-meta">Last updated <time datetime="2026-07-12">12 July 2026</time></p>
+      </header>
 
-      <p>By using <a href="https://shanegolding.net">shanegolding.net</a> (the "site") you agree to the terms below. If you don't agree, please don't use the site.</p>
+      <div class="prose">
+        <p>By using shanegolding.net, you agree to the terms below. If you do not agree, please do not use the site.</p>
 
-      <h2>The site</h2>
-      <p>This is a personal website. It's provided as-is, without warranties of any kind. I make no guarantees about uptime, accuracy, or fitness for any particular purpose, and I may change or remove content at any time.</p>
+        <h2>The site</h2>
+        <p>This is a personal website provided as-is. I make no guarantee about uptime, completeness, accuracy, or fitness for a particular purpose, and I may change or remove content at any time.</p>
 
-      <h2>Content and copyright</h2>
-      <p>Unless otherwise noted, all original content on the site — text, images, code, and design — is © Shane Golding. Short excerpts may be quoted for non-commercial purposes with attribution and a link back. For anything more than that, please ask.</p>
-      <p>Some third-party assets (for example, open-source libraries or typefaces) remain the property of their respective owners and are used under their own licenses.</p>
+        <h2>Content and copyright</h2>
+        <p>Unless otherwise stated, the original text, images, code, and design on this site are © Shane Golding. Short excerpts may be quoted for non-commercial purposes with attribution and a link to the original page. Please ask before reusing anything more substantial.</p>
+        <p>Third-party software and other materials retain their original licences and ownership.</p>
 
-      <h2>Acceptable use</h2>
-      <p>Don't use the site to break the law, probe or attack its infrastructure, or scrape it at a volume that disrupts normal service for other visitors. Automated crawling for good-faith reasons (search indexing, archiving) is fine.</p>
+        <h2>Acceptable use</h2>
+        <p>Do not use the site to break the law, attack its infrastructure, or scrape it at a volume that disrupts service. Normal search indexing, archiving, and good-faith research are welcome.</p>
 
-      <h2>External links</h2>
-      <p>Outgoing links are provided for convenience. I don't control and am not responsible for the content of sites I link to.</p>
+        <h2>External links</h2>
+        <p>Links to other websites are provided for convenience. I do not control or accept responsibility for their content or availability.</p>
 
-      <h2>Limitation of liability</h2>
-      <p>To the fullest extent permitted by law, I am not liable for any loss or damage arising from your use of, or inability to use, the site.</p>
+        <h2>Limitation of liability</h2>
+        <p>To the fullest extent permitted by law, I am not liable for loss or damage arising from use of, or inability to use, this site.</p>
 
-      <h2>Changes</h2>
-      <p>If these terms change, the updated version will appear on this page with a new date at the top.</p>
-
-      <h2>Contact</h2>
-      <p>Questions? Email <a href="mailto:mail@shanegolding.net">mail@shanegolding.net</a>.</p>
+        <h2>Changes and contact</h2>
+        <p>If these terms change, the revised date will appear above. Questions can be sent to <a class="text-link" href="mailto:mail@shanegolding.net">mail@shanegolding.net</a>.</p>
+      </div>
     </article>
   </main>
 
-  <footer>
-    <div class="container">
-      <p>© <span id="year"></span> Shane Golding</p>
-      <div class="legal-links">
-        <a href="/about.html">About</a>
-        <a href="/privacy.html">Privacy</a>
-        <a href="/terms.html">Terms</a>
-      </div>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span data-current-year>2026</span> Shane Golding</p>
+      <nav aria-label="Legal">
+        <ul class="footer-links">
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/privacy.html">Privacy</a></li>
+          <li><a href="/terms.html" aria-current="page">Terms</a></li>
+        </ul>
+      </nav>
     </div>
   </footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <script type="module" src="/assets/js/site.js"></script>
 </body>
 </html>

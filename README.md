@@ -1,36 +1,74 @@
-# Shane Golding's Personal Website
+# Shane Golding's website
 
-This is the source code for my personal website, hosted on GitHub Pages at [shanegolding.net](https://shanegolding.net).
+Source for [shanegolding.net](https://shanegolding.net), a lightweight personal site for selected software projects and browser experiments.
 
-## Project Structure
+## What is included
 
-The website is built with plain HTML, CSS, and JavaScript. The file structure is as follows:
+- Responsive, hand-written HTML and CSS with no framework or build step
+- Shared navigation, article, project, contact, and legal-page styles
+- Accessible keyboard navigation, visible focus states, skip links, and reduced-motion support
+- A Canvas-based Snake game with a deterministic engine, scoped keyboard controls, touch-friendly direction buttons, and local high-score storage
+- Canonical, Open Graph, Twitter/X, JSON-LD, sitemap, robots, favicon, and social-card metadata
+- A custom 404 page
+- No analytics, advertising trackers, external fonts, or runtime third-party dependencies
 
-*   `index.html`: The main HTML file that contains the structure of the website.
-*   `style.css`: The stylesheet that contains all the styles for the website.
-*   `script.js`: The JavaScript file that contains all the interactive functionality, including the particle background and the Snake game.
+## Project structure
 
-## Code Overview
+```text
+.
+├── index.html
+├── about.html
+├── privacy.html
+├── terms.html
+├── 404.html
+├── assets/
+│   ├── css/site.css
+│   ├── images/og-image.{svg,png}
+│   └── js/
+│       ├── site.js
+│       ├── snake-engine.js
+│       └── snake-ui.js
+├── scripts/check-site.mjs
+├── tests/
+├── robots.txt
+├── sitemap.xml
+├── favicon.svg
+└── CNAME
+```
 
-### HTML
+## Local development
 
-The `index.html` file is organized into semantic sections, including a header, "About Me," "Projects," and "Contact." It also includes the canvas element for the particle background and the Snake game.
+No dependency installation is required. Serve the repository root so ES modules and root-relative links behave like production:
 
-### CSS
+```bash
+python3 -m http.server 8000
+```
 
-The `style.css` file uses a dark theme with a vibrant green accent color. It includes styles for the overall layout, typography, animations, and the Snake game. The stylesheet also includes media queries for responsive design, ensuring the website looks good on different screen sizes.
+Then open `http://127.0.0.1:8000`.
 
-### JavaScript
+Run the structural checks and game-engine tests with Node.js 20 or newer:
 
-The `script.js` file is written in vanilla JavaScript (ES6+) and is not transpiled or bundled. It includes the following features:
+```bash
+npm run check
+npm test
+```
 
-*   **Particle Background:** A canvas-based animation of particles that float and connect to each other.
-*   **Typing Effect:** A typing animation for the name "Shane Golding."
-*   **Snake Game:** A complete implementation of the classic Snake game, with a scoreboard and touch controls for mobile devices.
+## Content guidance
 
-## Technologies Used
+Project summaries should describe verifiable work without inventing client results, employment history, or performance claims. Add a public source or case-study link only when that destination is ready to share.
 
-*   HTML5
-*   CSS3
-*   Vanilla JavaScript (ES6+)
-*   Google Fonts
+When content changes, keep the page description, Open Graph text, Twitter/X text, JSON-LD, sitemap date, and social image aligned with the visible page.
+
+## Deployment
+
+`.github/workflows/pages.yml` validates and deploys the static allowlist on pushes to `main`.
+
+GitHub repository settings still need to be configured once:
+
+1. Open **Settings → Pages**.
+2. Set the source to **GitHub Actions**.
+3. Add `shanegolding.net` as the custom domain.
+4. Wait for certificate provisioning, then enable **Enforce HTTPS**.
+5. Verify the domain in the account's Pages settings.
+
+The `CNAME` file alone does not enable GitHub Pages or attach the custom domain.

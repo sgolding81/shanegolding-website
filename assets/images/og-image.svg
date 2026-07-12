@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title description">
+  <title id="title">Shane Golding</title>
+  <desc id="description">Small, practical software for the web, Linux, and games.</desc>
+  <defs>
+    <radialGradient id="glow" cx="85%" cy="10%" r="90%">
+      <stop offset="0" stop-color="#3d2d20"/>
+      <stop offset="0.48" stop-color="#171719"/>
+      <stop offset="1" stop-color="#0b0b0c"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <rect x="72" y="72" width="1056" height="486" rx="24" fill="none" stroke="#68686c" stroke-width="2"/>
+  <circle cx="1015" cy="170" r="16" fill="#d8a574"/>
+  <text x="130" y="238" fill="#d8a574" font-family="system-ui, sans-serif" font-size="28" font-weight="700" letter-spacing="4">WEB · LINUX · GAMES</text>
+  <text x="130" y="345" fill="#f1f1f2" font-family="system-ui, sans-serif" font-size="76" font-weight="700">Shane Golding</text>
+  <text x="130" y="420" fill="#aaaab0" font-family="system-ui, sans-serif" font-size="34">Small, practical software built with care.</text>
+  <text x="130" y="505" fill="#85858a" font-family="system-ui, sans-serif" font-size="24">shanegolding.net</text>
+</svg>

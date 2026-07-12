@@ -1,31 +1,29 @@
-# CLAUDE.md
+# Repository guidance
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
-
-## Overview
-
-Personal website for Shane Golding, hosted on GitHub Pages at [shanegolding.net](https://shanegolding.net). No build pipeline — pure static HTML/CSS/JS files served directly from the repo root.
-
-## Development
-
-No build step required. Open any `.html` file directly in a browser to preview changes. The site is live at the custom domain configured in `CNAME`.
+This repository contains Shane Golding's static personal website. It is deployed to GitHub Pages without a framework or compilation step.
 
 ## Architecture
 
-All pages are self-contained HTML files with inline `<style>` and `<script>` blocks — there are no separate CSS or JS files. The README references `style.css` / `script.js` but those were consolidated into inline code.
+- HTML pages remain complete and navigable without JavaScript.
+- `assets/css/site.css` contains the shared visual system and responsive rules.
+- `assets/js/site.js` provides small site-wide enhancements.
+- `assets/js/snake-engine.js` contains deterministic game state with no DOM dependencies.
+- `assets/js/snake-ui.js` owns Canvas rendering, storage, timers, and accessible controls.
+- `scripts/check-site.mjs` validates local links, metadata, key semantics, image dimensions, and colour contrast.
+- `tests/` uses Node's built-in test runner; there are no test dependencies.
 
-**Pages:**
-- `index.html` — Main portfolio page (~630 lines). Contains all interactive features.
-- `about.html`, `privacy.html`, `terms.html` — Secondary pages sharing the same header/footer pattern.
+## Commands
 
-**`index.html` internals:**
-- **Particle background** — Canvas-based animation (80 particles, 100px connection distance)
-- **Typing effect** — CSS `animation: typing` on the name heading
-- **Snake game** — Full implementation on an 18×18 grid with arrow keys, WASD, and touch/swipe; high score persisted via `localStorage`; speed scales every 5 points; edges wrap
+```bash
+python3 -m http.server 8000
+npm run check
+npm test
+```
 
-**Styling conventions:**
-- Dark theme with cyan/green accents (`#00ff99`, `#00b4ff`)
-- Google Fonts: Inter, Open Sans, Roboto Mono
-- Mobile breakpoint at `max-width: 900px`
+## Conventions
 
-**Deployment:** Pushes to `main` deploy automatically via GitHub Pages. The `CNAME` file maps to `shanegolding.net`.
+- Keep shared styling and behavior out of inline `style` and executable inline `script` blocks. JSON-LD is the intentional exception.
+- Preserve visible `:focus-visible` states, 44px control targets, reduced-motion behavior, and normal page scrolling outside the focused game region.
+- Do not bind game keyboard controls to `window` or suppress touch scrolling over the Canvas.
+- Treat personal biography, client relationships, results, and external project links as facts that require confirmation before publication.
+- Update metadata, sitemap dates, privacy disclosures, tests, and documentation when behavior changes.
