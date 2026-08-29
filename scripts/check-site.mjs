@@ -4,7 +4,15 @@ import { fileURLToPath } from 'node:url';
 
 const scriptPath = fileURLToPath(import.meta.url);
 export const root = path.resolve(path.dirname(scriptPath), '..');
-export const canonicalPages = ['index.html', 'about.html', 'privacy.html', 'terms.html'];
+export const canonicalPages = [
+  'index.html',
+  'about.html',
+  'webcam-streaming.html',
+  'discord-assistant-bridge.html',
+  'accessible-snake.html',
+  'privacy.html',
+  'terms.html',
+];
 
 function read(file) {
   return fs.readFileSync(path.join(root, file), 'utf8');
@@ -25,6 +33,23 @@ function localTarget(reference, currentPage) {
   else file = path.posix.normalize(path.posix.join(path.posix.dirname(currentPage), pathname));
 
   return { file, fragment: fragment || '' };
+}
+
+export function invalidAriaCurrentTargets(html, currentPage) {
+  const invalid = [];
+
+  for (const match of html.matchAll(/<a\b[^>]*>/gi)) {
+    const anchor = match[0];
+    if (!/\baria-current\s*=\s*["']page["']/i.test(anchor)) continue;
+
+    const href = firstMatch(anchor, /\bhref\s*=\s*["']([^"']+)["']/i);
+    if (!href) continue;
+
+    const target = localTarget(href, currentPage);
+    if (target && target.file !== currentPage) invalid.push(href);
+  }
+
+  return invalid;
 }
 
 function luminance(hex) {
@@ -72,6 +97,7 @@ export function validateSite() {
     if (!/<nav\b[^>]*aria-label="Primary"/i.test(html)) fail('missing labelled primary navigation');
     if (!/<nav\b[^>]*aria-label="Legal"/i.test(html)) fail('missing labelled legal navigation');
     if (/<style\b|\sstyle=/i.test(html)) fail('inline CSS is not allowed');
+    if (/<script\b(?![^>]*type="application\/ld\+json")[^>]*>(?!\s*<\/script>)[\s\S]*?<\/script>/i.test(html)) fail('executable inline JavaScript is not allowed');
     if (/(?:more soon|coming soon|on the way|lorem ipsum)/i.test(html)) fail('placeholder copy remains');
     if (/<button\b(?![^>]*\btype=)[^>]*>/i.test(html)) fail('button without an explicit type');
 
@@ -90,10 +116,21 @@ export function validateSite() {
     const duplicates = ids.filter((id, index) => ids.indexOf(id) !== index);
     if (duplicates.length) fail(`duplicate ids: ${[...new Set(duplicates)].join(', ')}`);
 
+    for (const image of html.matchAll(/<img\b([^>]*)>/gi)) {
+      if (!/\balt="[^"]*"/i.test(image[1])) fail('image is missing alt text');
+      if (!/\bwidth="\d+"/i.test(image[1]) || !/\bheight="\d+"/i.test(image[1])) {
+        fail('image is missing intrinsic width and height');
+      }
+    }
+
     const primary = firstMatch(html, /<nav\b[^>]*aria-label="Primary"[^>]*>([\s\S]*?)<\/nav>/i);
     const navLinks = [...primary.matchAll(/href="([^"]+)"/gi)].map((match) => match[1]);
     if (primaryLinks === null) primaryLinks = navLinks;
     else if (JSON.stringify(navLinks) !== JSON.stringify(primaryLinks)) fail('primary navigation destinations differ');
+
+    for (const href of invalidAriaCurrentTargets(html, page)) {
+      fail(`aria-current page link points to ${href}`);
+    }
 
     for (const match of html.matchAll(/(?:href|src)="([^"]+)"/gi)) {
       const target = localTarget(match[1], page);

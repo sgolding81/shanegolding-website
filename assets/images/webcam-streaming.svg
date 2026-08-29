@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+  <title id="title">Webcam streaming service architecture</title>
+  <desc id="desc">A USB camera flows through a Go service to browser and media-player viewers, with health, recovery, and rollback checks below.</desc>
+  <rect width="960" height="600" rx="28" fill="#111113"/>
+  <path d="M90 300H870" stroke="#68686c" stroke-width="4" stroke-dasharray="10 14"/>
+  <g fill="#1b1b1e" stroke="#d8a574" stroke-width="4">
+    <rect x="72" y="215" width="210" height="170" rx="18"/>
+    <rect x="375" y="188" width="210" height="224" rx="18"/>
+    <rect x="678" y="128" width="210" height="150" rx="18"/>
+    <rect x="678" y="322" width="210" height="150" rx="18"/>
+  </g>
+  <g fill="#f1f1f2" font-family="system-ui, sans-serif" text-anchor="middle">
+    <text x="177" y="280" font-size="30" font-weight="700">USB camera</text>
+    <text x="177" y="322" font-size="20" fill="#aaaab0">video source</text>
+    <text x="480" y="270" font-size="30" font-weight="700">Go service</text>
+    <text x="480" y="312" font-size="20" fill="#aaaab0">stream publisher</text>
+    <text x="783" y="192" font-size="27" font-weight="700">Browser</text>
+    <text x="783" y="236" font-size="20" fill="#aaaab0">viewer</text>
+    <text x="783" y="386" font-size="27" font-weight="700">Media player</text>
+    <text x="783" y="430" font-size="20" fill="#aaaab0">viewer</text>
+  </g>
+  <g fill="#d8a574">
+    <path d="m334 300-30-18v36z"/><path d="m637 203-30-18v36z"/><path d="m637 397-30-18v36z"/>
+  </g>
+  <g font-family="system-ui, sans-serif" font-size="18" font-weight="700">
+    <rect x="226" y="510" width="150" height="48" rx="24" fill="#26262a"/><text x="301" y="540" text-anchor="middle" fill="#f0bd8b">Health checks</text>
+    <rect x="405" y="510" width="150" height="48" rx="24" fill="#26262a"/><text x="480" y="540" text-anchor="middle" fill="#f0bd8b">Recovery</text>
+    <rect x="584" y="510" width="150" height="48" rx="24" fill="#26262a"/><text x="659" y="540" text-anchor="middle" fill="#f0bd8b">Rollback</text>
+  </g>
+</svg>

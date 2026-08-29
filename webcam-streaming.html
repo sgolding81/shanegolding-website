@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Low-latency webcam streaming — Shane Golding</title>
+  <meta name="description" content="Case study of a Go and systemd service for publishing a USB webcam with health checks, startup recovery, and a rollback path.">
+  <meta name="author" content="Shane Golding">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0b0b0c">
+  <link rel="canonical" href="https://shanegolding.net/webcam-streaming.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <meta property="og:site_name" content="Shane Golding">
+  <meta property="og:title" content="Low-latency webcam streaming — Shane Golding">
+  <meta property="og:description" content="A Go and systemd service for publishing a USB webcam with health checks, startup recovery, and a rollback path.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://shanegolding.net/webcam-streaming.html">
+  <meta property="og:image" content="https://shanegolding.net/assets/images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Shane Golding — practical software for the web, Linux, and games">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Low-latency webcam streaming — Shane Golding">
+  <meta name="twitter:description" content="A Go and systemd service for publishing a USB webcam with health checks, startup recovery, and a rollback path.">
+  <meta name="twitter:image" content="https://shanegolding.net/assets/images/og-image.png">
+  <meta name="twitter:image:alt" content="Shane Golding — practical software for the web, Linux, and games">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <nav class="site-nav" aria-label="Primary">
+    <div class="container nav-inner">
+      <a class="brand" href="/" aria-label="Shane Golding, home"><span class="brand-full" aria-hidden="true">Shane Golding</span><span class="brand-short" aria-hidden="true">SG</span></a>
+      <ul><li><a href="/#work">Work</a></li><li><a href="/about.html">About</a></li><li><a href="/#contact">Contact</a></li></ul>
+    </div>
+  </nav>
+  <main id="main-content" class="container article-page case-study" tabindex="-1">
+    <article>
+      <header class="article-header case-study-header">
+        <div>
+          <p class="eyebrow">Case study · Linux service</p>
+          <h1>Low-latency webcam streaming</h1>
+          <p class="lead">A native service that publishes a USB camera for browser and media-player viewing, with operational recovery built into the design.</p>
+          <ul class="project-meta" aria-label="Technologies"><li>Go</li><li>systemd</li><li>Streaming</li></ul>
+        </div>
+        <img class="case-study-visual" src="/assets/images/webcam-streaming.svg" width="960" height="600" alt="Diagram showing a USB camera feeding a Go service, which publishes to browser and media-player viewers, supported by health, recovery, and rollback checks.">
+      </header>
+      <div class="case-study-layout">
+        <aside class="case-study-summary" aria-label="Project summary">
+          <p class="section-label">At a glance</p>
+          <dl><div><dt>Purpose</dt><dd>Publish a USB camera to common viewers</dd></div><div><dt>Runtime</dt><dd>Native Linux service</dd></div><div><dt>Operational scope</dt><dd>Health checks, recovery, rollback</dd></div></dl>
+        </aside>
+        <div class="prose">
+          <h2>The problem</h2>
+          <p>The project focuses on making a USB camera available to both browser and media-player clients without treating the stream as an isolated demo. The service also needs a clear operating path when the camera or process is unavailable.</p>
+          <h2>The approach</h2>
+          <p>A Go service owns the stream-publishing work and runs under systemd. That keeps the application native to the host and places startup and process supervision alongside the rest of the Linux service configuration.</p>
+          <p>The published scope includes health checks, startup recovery, and a documented rollback path. Those pieces make failure handling and reverting a deployment part of the project rather than an afterthought.</p>
+          <h2>What the work demonstrates</h2>
+          <ul><li>Connecting a physical USB camera to browser and media-player delivery.</li><li>Packaging the runtime as a supervised Linux service.</li><li>Planning for observable health, restart behavior, and rollback.</li></ul>
+          <p class="case-study-note"><strong>About this case study:</strong> It describes the project’s published architecture and operating safeguards. No performance figures or production results are claimed.</p>
+          <div class="article-actions"><a class="button button-primary" href="/#work">View all projects</a><a class="button" href="mailto:mail@shanegolding.net">Discuss a project</a></div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><p>© <span data-current-year>2026</span> Shane Golding</p><nav aria-label="Legal"><ul class="footer-links"><li><a href="/about.html">About</a></li><li><a href="/privacy.html">Privacy</a></li><li><a href="/terms.html">Terms</a></li></ul></nav></div></footer>
+  <script type="module" src="/assets/js/site.js"></script>
+</body>
+</html>

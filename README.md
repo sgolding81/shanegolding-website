@@ -5,7 +5,8 @@ Source for [shanegolding.net](https://shanegolding.net), a lightweight personal 
 ## What is included
 
 - Responsive, hand-written HTML and CSS with no framework or build step
-- Shared navigation, article, project, contact, and legal-page styles
+- Shared navigation, project-card, case-study, About, contact, and legal-page styles
+- Three internal case studies with original SVG architecture and interface visuals
 - Accessible keyboard navigation, visible focus states, skip links, and reduced-motion support
 - A Canvas-based Snake game with a deterministic engine, scoped keyboard controls, touch-friendly direction buttons, and local high-score storage
 - Canonical, Open Graph, Twitter/X, JSON-LD, sitemap, robots, favicon, and social-card metadata
@@ -18,12 +19,19 @@ Source for [shanegolding.net](https://shanegolding.net), a lightweight personal 
 .
 ├── index.html
 ├── about.html
+├── webcam-streaming.html
+├── discord-assistant-bridge.html
+├── accessible-snake.html
 ├── privacy.html
 ├── terms.html
 ├── 404.html
 ├── assets/
 │   ├── css/site.css
-│   ├── images/og-image.{svg,png}
+│   ├── images/
+│   │   ├── og-image.{svg,png}
+│   │   ├── webcam-streaming.svg
+│   │   ├── discord-assistant-bridge.svg
+│   │   └── accessible-snake.svg
 │   └── js/
 │       ├── site.js
 │       ├── snake-engine.js
@@ -55,13 +63,13 @@ npm test
 
 ## Content guidance
 
-Project summaries should describe verifiable work without inventing client results, employment history, or performance claims. Add a public source or case-study link only when that destination is ready to share.
+Project summaries and case studies describe verifiable architecture and published features without inventing client results, employment history, performance metrics, or usage claims. External links are limited to destinations that can be verified, including Shane's GitHub profile and this site's source repository.
 
 When content changes, keep the page description, Open Graph text, Twitter/X text, JSON-LD, sitemap date, and social image aligned with the visible page.
 
 ## Deployment
 
-`.github/workflows/pages.yml` validates and deploys the static allowlist on pushes to `main`.
+`.github/workflows/pages.yml` validates and deploys an explicit allowlist of HTML, CSS, JavaScript, image, and root metadata files on pushes to `main`.
 
 GitHub repository settings still need to be configured once:
 

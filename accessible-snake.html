@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Accessible Snake — Shane Golding</title>
+  <meta name="description" content="Case study of a Canvas Snake game with deterministic state, scoped keyboard input, touch controls, live feedback, and local high scores.">
+  <meta name="author" content="Shane Golding">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0b0b0c">
+  <link rel="canonical" href="https://shanegolding.net/accessible-snake.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <meta property="og:site_name" content="Shane Golding">
+  <meta property="og:title" content="Accessible Snake — Shane Golding">
+  <meta property="og:description" content="A Canvas Snake game with deterministic state, scoped keyboard input, touch controls, live feedback, and local high scores.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://shanegolding.net/accessible-snake.html">
+  <meta property="og:image" content="https://shanegolding.net/assets/images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Shane Golding — practical software for the web, Linux, and games">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Accessible Snake — Shane Golding">
+  <meta name="twitter:description" content="A Canvas Snake game with deterministic state, scoped keyboard input, touch controls, live feedback, and local high scores.">
+  <meta name="twitter:image" content="https://shanegolding.net/assets/images/og-image.png">
+  <meta name="twitter:image:alt" content="Shane Golding — practical software for the web, Linux, and games">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <nav class="site-nav" aria-label="Primary"><div class="container nav-inner"><a class="brand" href="/" aria-label="Shane Golding, home"><span class="brand-full" aria-hidden="true">Shane Golding</span><span class="brand-short" aria-hidden="true">SG</span></a><ul><li><a href="/#work">Work</a></li><li><a href="/about.html">About</a></li><li><a href="/#contact">Contact</a></li></ul></div></nav>
+  <main id="main-content" class="container article-page case-study" tabindex="-1">
+    <article>
+      <header class="article-header case-study-header">
+        <div><p class="eyebrow">Case study · Browser experiment</p><h1>Accessible Snake</h1><p class="lead">A compact Canvas game designed so game input stays scoped, touch controls remain practical, and state changes are conveyed in text.</p><ul class="project-meta" aria-label="Technologies"><li>JavaScript</li><li>Canvas</li><li>Accessibility</li></ul></div>
+        <img class="case-study-visual" src="/assets/images/accessible-snake.svg" width="960" height="600" alt="Illustration of a Snake board beside score and status text, with four large direction controls for keyboard and touch interaction.">
+      </header>
+      <div class="case-study-layout">
+        <aside class="case-study-summary" aria-label="Project summary"><p class="section-label">At a glance</p><dl><div><dt>Purpose</dt><dd>Explore inclusive browser-game controls</dd></div><div><dt>Rendering</dt><dd>Canvas</dd></div><div><dt>State</dt><dd>Deterministic JavaScript engine</dd></div></dl></aside>
+        <div class="prose">
+          <h2>The problem</h2>
+          <p>Canvas can provide a focused game surface, but it does not supply accessible controls or state feedback on its own. Global key handlers can also interfere with normal page scrolling, while small touch targets make mobile play difficult.</p>
+          <h2>The approach</h2>
+          <p>The game engine is separated from the DOM so movement, food placement, collisions, score changes, speed changes, and state transitions can be tested deterministically. The UI layer owns rendering, timers, local storage, and announcements.</p>
+          <p>Arrow-key and WASD input is bound to the focusable game region rather than the window. Direction buttons provide 44-pixel touch targets, the status uses a live region, the best score stays in local storage, and the game pauses when the page is hidden.</p>
+          <h2>Verified behavior</h2>
+          <ul><li>Movement wraps at each board edge and rejects direct reversals.</li><li>Only one direction change is accepted per tick.</li><li>Start, pause, resume, game-over, win, and replay are explicit states.</li><li>Normal page scrolling remains available outside the focused game.</li></ul>
+          <div class="article-actions"><a class="button button-primary" href="/#playground">Play Snake</a><a class="button" href="https://github.com/sgolding81/shanegolding-website">View site source on GitHub</a></div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><p>© <span data-current-year>2026</span> Shane Golding</p><nav aria-label="Legal"><ul class="footer-links"><li><a href="/about.html">About</a></li><li><a href="/privacy.html">Privacy</a></li><li><a href="/terms.html">Terms</a></li></ul></nav></div></footer>
+  <script type="module" src="/assets/js/site.js"></script>
+</body>
+</html>

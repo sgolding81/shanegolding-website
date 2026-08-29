@@ -3,82 +3,45 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>About Shane Golding</title>
-  <meta name="description" content="About Shane Golding, the software projects he builds, and the principles behind this site.">
+  <title>About Shane Golding — Approach &amp; working principles</title>
+  <meta name="description" content="How Shane Golding approaches focused web, Linux, automation, and browser-game projects, with links to verified public source.">
   <meta name="author" content="Shane Golding">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0b0b0c">
   <link rel="canonical" href="https://shanegolding.net/about.html">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/css/site.css">
-
   <meta property="og:site_name" content="Shane Golding">
-  <meta property="og:title" content="About Shane Golding">
-  <meta property="og:description" content="About Shane Golding, the software projects he builds, and the principles behind this site.">
+  <meta property="og:title" content="About Shane Golding — Approach &amp; working principles">
+  <meta property="og:description" content="An approach to focused web, Linux, automation, and browser-game projects, with links to verified public source.">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://shanegolding.net/about.html">
   <meta property="og:image" content="https://shanegolding.net/assets/images/og-image.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Shane Golding — small, practical software for the web, Linux, and games">
+  <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Shane Golding — practical software for the web, Linux, and games">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="About Shane Golding">
-  <meta name="twitter:description" content="About Shane Golding, the software projects he builds, and the principles behind this site.">
+  <meta name="twitter:title" content="About Shane Golding — Approach &amp; working principles">
+  <meta name="twitter:description" content="An approach to focused web, Linux, automation, and browser-game projects, with links to verified public source.">
   <meta name="twitter:image" content="https://shanegolding.net/assets/images/og-image.png">
-  <meta name="twitter:image:alt" content="Shane Golding — small, practical software for the web, Linux, and games">
+  <meta name="twitter:image:alt" content="Shane Golding — practical software for the web, Linux, and games">
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
-
-  <nav class="site-nav" aria-label="Primary">
-    <div class="container nav-inner">
-      <a class="brand" href="/" aria-label="Shane Golding, home">
-        <span class="brand-full" aria-hidden="true">Shane Golding</span>
-        <span class="brand-short" aria-hidden="true">SG</span>
-      </a>
-      <ul>
-        <li><a href="/#work">Work</a></li>
-        <li><a href="/about.html" aria-current="page">About</a></li>
-        <li><a href="/#contact">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <main id="main-content" class="container article-page" tabindex="-1">
+  <nav class="site-nav" aria-label="Primary"><div class="container nav-inner"><a class="brand" href="/" aria-label="Shane Golding, home"><span class="brand-full" aria-hidden="true">Shane Golding</span><span class="brand-short" aria-hidden="true">SG</span></a><ul><li><a href="/#work">Work</a></li><li><a href="/about.html" aria-current="page">About</a></li><li><a href="/#contact">Contact</a></li></ul></div></nav>
+  <main id="main-content" class="container article-page about-page" tabindex="-1">
     <article>
-      <header class="article-header">
-        <p class="eyebrow">About</p>
-        <h1>About Shane Golding</h1>
-        <p class="lead">I like turning specific problems into dependable, understandable software.</p>
-      </header>
+      <header class="article-header about-header"><div><p class="eyebrow">About</p><h1>Focused software, with the implementation made understandable.</h1><p class="lead">I’m Shane Golding. I build tools, websites, Linux services, and browser experiments around specific problems and clear operating constraints.</p></div><div class="about-links" aria-label="Verified links"><a class="button button-primary" href="https://github.com/sgolding81">GitHub profile</a><a class="button" href="https://github.com/sgolding81/shanegolding-website">This site’s source</a></div></header>
 
-      <div class="prose">
-        <p>I build focused tools, websites, and experiments. Recent work spans browser interfaces, native Linux services, developer tooling, and small game prototypes.</p>
-        <p>I’m drawn to straightforward technology, clear interfaces, and the small implementation details that make something pleasant to use and easy to maintain.</p>
+      <section class="about-section" aria-labelledby="work-shape-heading"><p class="section-label">The work</p><h2 id="work-shape-heading">From service operation to interface details</h2><div class="principles-grid"><article><h3>Systems that can be operated</h3><p>The webcam streaming project includes health checks, startup recovery, and a rollback path alongside the core stream.</p></article><article><h3>Automation with human checkpoints</h3><p>The Discord bridge combines queued work and persistent threads with explicit human approvals and auditable activity.</p></article><article><h3>Interactions that stay in context</h3><p>Accessible Snake scopes game keys to its focused region, provides touch controls, and reports state changes as text.</p></article></div></section>
 
-        <h2>About this site</h2>
-        <p>This site is deliberately lightweight. It uses hand-written HTML, CSS, and JavaScript, system fonts, and no analytics or advertising trackers. The interactive Snake experiment is built with the Canvas API and keeps its high score on your device.</p>
-        <p>The source is structured as ordinary static files so the pages remain fast, resilient, and understandable without a framework or build step.</p>
+      <section class="about-section" aria-labelledby="principles-heading"><p class="section-label">Working principles</p><h2 id="principles-heading">A practical default for project decisions</h2><ol class="working-principles"><li><span>01</span><div><h3>Start with the constraint</h3><p>Define the problem, runtime, inputs, and failure cases before adding surface area.</p></div></li><li><span>02</span><div><h3>Keep important state explicit</h3><p>Queues, approvals, game states, health checks, and recovery paths should be visible in the design.</p></div></li><li><span>03</span><div><h3>Prefer understandable parts</h3><p>Separate core logic from interface and platform concerns so each part can be inspected and tested.</p></div></li><li><span>04</span><div><h3>Design for more than one input</h3><p>Keyboard, touch, status text, and normal document navigation are part of the experience, not post-build extras.</p></div></li></ol></section>
 
-        <h2>Get in touch</h2>
-        <p>The simplest way to reach me is <a class="text-link" href="mailto:mail@shanegolding.net">mail@shanegolding.net</a>.</p>
-      </div>
+      <section class="about-section site-source" aria-labelledby="site-heading"><div><p class="section-label">This site</p><h2 id="site-heading">A public example of the same approach</h2><p>This website uses hand-written HTML, CSS, and JavaScript with no framework, build step, external font, analytics, or advertising tracker. Pages remain navigable without JavaScript. The Snake engine is separated from its Canvas UI and covered by Node tests.</p></div><ul class="source-facts"><li>Static GitHub Pages deployment</li><li>Semantic pages and visible focus states</li><li>Reduced-motion support</li><li>Deterministic game-engine tests</li></ul></section>
+
+      <section class="about-section about-contact" aria-labelledby="about-contact-heading"><div><p class="section-label">Contact</p><h2 id="about-contact-heading">Have a focused problem to work through?</h2><p>Email is the simplest way to start a conversation.</p></div><a class="button button-primary" href="mailto:mail@shanegolding.net">mail@shanegolding.net</a></section>
     </article>
   </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© <span data-current-year>2026</span> Shane Golding</p>
-      <nav aria-label="Legal">
-        <ul class="footer-links">
-          <li><a href="/about.html" aria-current="page">About</a></li>
-          <li><a href="/privacy.html">Privacy</a></li>
-          <li><a href="/terms.html">Terms</a></li>
-        </ul>
-      </nav>
-    </div>
-  </footer>
-
+  <footer class="site-footer"><div class="container footer-inner"><p>© <span data-current-year>2026</span> Shane Golding</p><nav aria-label="Legal"><ul class="footer-links"><li><a href="/about.html" aria-current="page">About</a></li><li><a href="/privacy.html">Privacy</a></li><li><a href="/terms.html">Terms</a></li></ul></nav></div></footer>
   <script type="module" src="/assets/js/site.js"></script>
 </body>
 </html>

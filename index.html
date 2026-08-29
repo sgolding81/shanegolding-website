@@ -3,186 +3,104 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Shane Golding — Web, Linux &amp; game projects</title>
-  <meta name="description" content="Selected websites, Linux tools, developer utilities, and browser experiments by Shane Golding.">
+  <title>Shane Golding — Practical web, Linux &amp; game projects</title>
+  <meta name="description" content="Case studies in practical web interfaces, native Linux services, developer automation, and accessible browser games by Shane Golding.">
   <meta name="author" content="Shane Golding">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0b0b0c">
   <link rel="canonical" href="https://shanegolding.net/">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/css/site.css">
-
   <meta property="og:site_name" content="Shane Golding">
-  <meta property="og:title" content="Shane Golding — Web, Linux &amp; game projects">
-  <meta property="og:description" content="Selected websites, Linux tools, developer utilities, and browser experiments by Shane Golding.">
+  <meta property="og:title" content="Shane Golding — Practical web, Linux &amp; game projects">
+  <meta property="og:description" content="Case studies in practical web interfaces, native Linux services, developer automation, and accessible browser games.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://shanegolding.net/">
   <meta property="og:image" content="https://shanegolding.net/assets/images/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Shane Golding — small, practical software for the web, Linux, and games">
+  <meta property="og:image:alt" content="Shane Golding — practical software for the web, Linux, and games">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Shane Golding — Web, Linux &amp; game projects">
-  <meta name="twitter:description" content="Selected websites, Linux tools, developer utilities, and browser experiments by Shane Golding.">
+  <meta name="twitter:title" content="Shane Golding — Practical web, Linux &amp; game projects">
+  <meta name="twitter:description" content="Case studies in practical web interfaces, native Linux services, developer automation, and accessible browser games.">
   <meta name="twitter:image" content="https://shanegolding.net/assets/images/og-image.png">
-  <meta name="twitter:image:alt" content="Shane Golding — small, practical software for the web, Linux, and games">
-
+  <meta name="twitter:image:alt" content="Shane Golding — practical software for the web, Linux, and games">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Shane Golding",
       "url": "https://shanegolding.net/",
-      "email": "mailto:mail@shanegolding.net"
+      "email": "mailto:mail@shanegolding.net",
+      "sameAs": ["https://github.com/sgolding81"]
     }
   </script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
-
   <nav class="site-nav" aria-label="Primary">
     <div class="container nav-inner">
-      <a class="brand" href="/" aria-label="Shane Golding, home" aria-current="page">
-        <span class="brand-full" aria-hidden="true">Shane Golding</span>
-        <span class="brand-short" aria-hidden="true">SG</span>
-      </a>
-      <ul>
-        <li><a href="/#work">Work</a></li>
-        <li><a href="/about.html">About</a></li>
-        <li><a href="/#contact">Contact</a></li>
-      </ul>
+      <a class="brand" href="/" aria-label="Shane Golding, home" aria-current="page"><span class="brand-full" aria-hidden="true">Shane Golding</span><span class="brand-short" aria-hidden="true">SG</span></a>
+      <ul><li><a href="/#work">Work</a></li><li><a href="/about.html">About</a></li><li><a href="/#contact">Contact</a></li></ul>
     </div>
   </nav>
-
   <main id="main-content" tabindex="-1">
     <header class="hero container">
-      <p class="eyebrow">Web · Linux · Games</p>
-      <h1>Small, practical software for the web, Linux, and the occasional game.</h1>
-      <p class="lead">I’m Shane. I build focused tools, websites, and experiments with simple technology and attention to the details that make them useful.</p>
-      <div class="hero-actions">
-        <a class="button button-primary" href="#work">See selected work</a>
-        <a class="button" href="mailto:mail@shanegolding.net">Email me</a>
-      </div>
+      <p class="eyebrow">Web interfaces · Linux services · Developer tools</p>
+      <h1>Practical software, explained through the decisions behind it.</h1>
+      <p class="lead">I’m Shane. I build focused tools, services, and browser experiments, with an emphasis on understandable architecture, resilient operation, and accessible interaction.</p>
+      <div class="hero-actions"><a class="button button-primary" href="#work">Explore the case studies</a><a class="button" href="https://github.com/sgolding81">View GitHub profile</a></div>
+      <ul class="proof-list" aria-label="Portfolio focus"><li><strong>Native operation</strong><span>Service health, recovery, and rollback</span></li><li><strong>Human control</strong><span>Approval points and auditable activity</span></li><li><strong>Inclusive input</strong><span>Keyboard, touch, and explicit status feedback</span></li></ul>
     </header>
 
     <section id="work" class="content container" aria-labelledby="work-heading">
       <p class="section-label">Selected work</p>
-      <h2 id="work-heading">Things I’ve been building</h2>
-      <p class="section-intro">A mix of systems work, developer tooling, and browser experiments—kept deliberately focused and built to solve a specific problem.</p>
-
+      <h2 id="work-heading">Three focused systems, with the work made visible</h2>
+      <p class="section-intro">Each case study stays within the project’s published scope: what it is, how the pieces fit together, and which implementation concerns it addresses.</p>
       <div class="projects">
-        <article class="project-card is-featured">
-          <p class="project-kicker">Linux service</p>
-          <h3>Low-latency webcam streaming</h3>
-          <p>A native service that publishes a USB camera for browser and media-player viewing, with health checks, startup recovery, and a documented rollback path.</p>
-          <ul class="project-meta" aria-label="Technologies">
-            <li>Go</li>
-            <li>systemd</li>
-            <li>Streaming</li>
-          </ul>
-        </article>
-
-        <article class="project-card">
-          <p class="project-kicker">Developer tooling</p>
-          <h3>Discord assistant bridge</h3>
-          <p>A TypeScript bridge for persistent assistant threads, queued requests, human approvals, reminders, voice replies, and auditable activity.</p>
-          <ul class="project-meta" aria-label="Technologies">
-            <li>TypeScript</li>
-            <li>Discord</li>
-            <li>Automation</li>
-          </ul>
-        </article>
-
         <article class="project-card is-link">
-          <a class="project-card-link" href="#playground">
-            <p class="project-kicker">Browser experiment</p>
-            <h3>Accessible Snake</h3>
-            <p>A canvas game with scoped keyboard controls, touch-friendly direction buttons, persistent high scores, and explicit game-state feedback.</p>
-            <ul class="project-meta" aria-label="Technologies">
-              <li>JavaScript</li>
-              <li>Canvas</li>
-              <li>Accessibility</li>
-            </ul>
-            <span class="project-arrow" aria-hidden="true">Play below ↓</span>
+          <a class="project-card-link" href="/webcam-streaming.html">
+            <img class="project-visual" src="/assets/images/webcam-streaming.svg" width="960" height="600" alt="">
+            <div class="project-card-body"><p class="project-kicker">Linux service</p><h3>Low-latency webcam streaming</h3><p>A native service that publishes a USB camera for browser and media-player viewing, with health checks, startup recovery, and a documented rollback path.</p><ul class="project-meta" aria-label="Technologies"><li>Go</li><li>systemd</li><li>Streaming</li></ul><span class="project-arrow">Read the case study <span aria-hidden="true">→</span></span></div>
+          </a>
+        </article>
+        <article class="project-card is-link">
+          <a class="project-card-link" href="/discord-assistant-bridge.html">
+            <img class="project-visual" src="/assets/images/discord-assistant-bridge.svg" width="960" height="600" alt="">
+            <div class="project-card-body"><p class="project-kicker">Developer tooling</p><h3>Discord assistant bridge</h3><p>A TypeScript bridge for persistent assistant threads, queued requests, human approvals, reminders, voice replies, and auditable activity.</p><ul class="project-meta" aria-label="Technologies"><li>TypeScript</li><li>Discord</li><li>Automation</li></ul><span class="project-arrow">Read the case study <span aria-hidden="true">→</span></span></div>
+          </a>
+        </article>
+        <article class="project-card is-link">
+          <a class="project-card-link" href="/accessible-snake.html">
+            <img class="project-visual" src="/assets/images/accessible-snake.svg" width="960" height="600" alt="">
+            <div class="project-card-body"><p class="project-kicker">Browser experiment</p><h3>Accessible Snake</h3><p>A Canvas game with scoped keyboard controls, touch-friendly direction buttons, persistent high scores, and explicit game-state feedback.</p><ul class="project-meta" aria-label="Technologies"><li>JavaScript</li><li>Canvas</li><li>Accessibility</li></ul><span class="project-arrow">Read the case study <span aria-hidden="true">→</span></span></div>
           </a>
         </article>
       </div>
     </section>
 
     <section id="contact" class="content container" aria-labelledby="contact-heading">
-      <div class="contact-panel">
-        <div>
-          <p class="section-label">Contact</p>
-          <h2 id="contact-heading">Have something in mind?</h2>
-          <p>Email is the simplest way to reach me.</p>
-        </div>
-        <a class="button button-primary" href="mailto:mail@shanegolding.net">mail@shanegolding.net</a>
-      </div>
+      <div class="contact-panel"><div><p class="section-label">Contact</p><h2 id="contact-heading">Start with the problem you’re trying to solve.</h2><p>Email me directly, or review the public site source and project activity on GitHub.</p></div><div class="contact-actions"><a class="button button-primary" href="mailto:mail@shanegolding.net">Email Shane</a><a class="button" href="https://github.com/sgolding81">GitHub profile</a></div></div>
     </section>
 
     <section id="playground" class="content container" aria-labelledby="playground-heading">
-      <p class="section-label">Playground</p>
-      <h2 id="playground-heading">A small browser experiment</h2>
-      <p class="section-intro">The best projects often start as a compact idea worth trying.</p>
-
-      <div
-        id="snakeGame"
-        class="playground"
-        role="group"
-        tabindex="0"
-        aria-labelledby="snake-heading"
-        aria-describedby="gameInstructions gameStatus"
-      >
-        <div class="game-header">
-          <h3 id="snake-heading">Snake</h3>
-          <p id="gameInstructions" class="game-instructions">Select Start, then focus this game area and use arrow keys or WASD. On smaller screens, use the direction buttons.</p>
-        </div>
-
+      <p class="section-label">Playground</p><h2 id="playground-heading">Try Accessible Snake</h2><p class="section-intro">A working browser experiment with deterministic game state, keyboard and touch controls, and text status feedback.</p>
+      <div id="snakeGame" class="playground" role="group" tabindex="0" aria-labelledby="snake-heading" aria-describedby="gameInstructions gameStatus">
+        <div class="game-header"><h3 id="snake-heading">Snake</h3><p id="gameInstructions" class="game-instructions">Select Start, then focus this game area and use arrow keys or WASD. On smaller screens, use the direction buttons.</p></div>
         <div class="game-layout">
           <canvas id="gameCanvas" width="360" height="360" aria-hidden="true">A visual Snake game board.</canvas>
-
           <div class="game-sidebar">
-            <dl class="scoreboard">
-              <div><dt>Score</dt><dd><output id="score">0</output></dd></div>
-              <div><dt>Best</dt><dd><output id="highScore">0</output></dd></div>
-            </dl>
-
+            <dl class="scoreboard"><div><dt>Score</dt><dd><output id="score">0</output></dd></div><div><dt>Best</dt><dd><output id="highScore">0</output></dd></div></dl>
             <p id="gameStatus" class="game-status" role="status" aria-live="polite" aria-atomic="true">Ready. Select Start, then use the game controls.</p>
-
-            <div class="game-buttons" aria-label="Game controls">
-              <button id="startBtn" class="button" type="button">Start</button>
-              <button id="pauseBtn" class="button" type="button" disabled>Pause</button>
-              <button id="resetBtn" class="button" type="button">Reset</button>
-            </div>
-
-            <div class="direction-controls" role="group" aria-label="Direction controls">
-              <button class="direction-button" type="button" data-direction="up" aria-label="Move up" disabled>↑</button>
-              <button class="direction-button" type="button" data-direction="left" aria-label="Move left" disabled>←</button>
-              <button class="direction-button" type="button" data-direction="down" aria-label="Move down" disabled>↓</button>
-              <button class="direction-button" type="button" data-direction="right" aria-label="Move right" disabled>→</button>
-            </div>
-
+            <div class="game-buttons" aria-label="Game controls"><button id="startBtn" class="button" type="button">Start</button><button id="pauseBtn" class="button" type="button" disabled>Pause</button><button id="resetBtn" class="button" type="button">Reset</button></div>
+            <div class="direction-controls" role="group" aria-label="Direction controls"><button class="direction-button" type="button" data-direction="up" aria-label="Move up" disabled>↑</button><button class="direction-button" type="button" data-direction="left" aria-label="Move left" disabled>←</button><button class="direction-button" type="button" data-direction="down" aria-label="Move down" disabled>↓</button><button class="direction-button" type="button" data-direction="right" aria-label="Move right" disabled>→</button></div>
             <p class="game-note">Your best score is stored only in this browser. The game pauses when the page is hidden.</p>
           </div>
         </div>
       </div>
     </section>
   </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© <span data-current-year>2026</span> Shane Golding</p>
-      <nav aria-label="Legal">
-        <ul class="footer-links">
-          <li><a href="/about.html">About</a></li>
-          <li><a href="/privacy.html">Privacy</a></li>
-          <li><a href="/terms.html">Terms</a></li>
-        </ul>
-      </nav>
-    </div>
-  </footer>
-
-  <script type="module" src="/assets/js/site.js"></script>
-  <script type="module" src="/assets/js/snake-ui.js"></script>
+  <footer class="site-footer"><div class="container footer-inner"><p>© <span data-current-year>2026</span> Shane Golding</p><nav aria-label="Legal"><ul class="footer-links"><li><a href="/about.html">About</a></li><li><a href="/privacy.html">Privacy</a></li><li><a href="/terms.html">Terms</a></li></ul></nav></div></footer>
+  <script type="module" src="/assets/js/site.js"></script><script type="module" src="/assets/js/snake-ui.js"></script>
 </body>
 </html>

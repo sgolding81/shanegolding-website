@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Discord assistant bridge — Shane Golding</title>
+  <meta name="description" content="Case study of a TypeScript Discord bridge for assistant threads, queued requests, approvals, reminders, voice replies, and activity records.">
+  <meta name="author" content="Shane Golding">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0b0b0c">
+  <link rel="canonical" href="https://shanegolding.net/discord-assistant-bridge.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <meta property="og:site_name" content="Shane Golding">
+  <meta property="og:title" content="Discord assistant bridge — Shane Golding">
+  <meta property="og:description" content="A TypeScript Discord bridge for persistent threads, queued requests, human approvals, reminders, voice replies, and auditable activity.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://shanegolding.net/discord-assistant-bridge.html">
+  <meta property="og:image" content="https://shanegolding.net/assets/images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Shane Golding — practical software for the web, Linux, and games">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Discord assistant bridge — Shane Golding">
+  <meta name="twitter:description" content="A TypeScript Discord bridge for persistent threads, queued requests, human approvals, reminders, voice replies, and auditable activity.">
+  <meta name="twitter:image" content="https://shanegolding.net/assets/images/og-image.png">
+  <meta name="twitter:image:alt" content="Shane Golding — practical software for the web, Linux, and games">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <nav class="site-nav" aria-label="Primary"><div class="container nav-inner"><a class="brand" href="/" aria-label="Shane Golding, home"><span class="brand-full" aria-hidden="true">Shane Golding</span><span class="brand-short" aria-hidden="true">SG</span></a><ul><li><a href="/#work">Work</a></li><li><a href="/about.html">About</a></li><li><a href="/#contact">Contact</a></li></ul></div></nav>
+  <main id="main-content" class="container article-page case-study" tabindex="-1">
+    <article>
+      <header class="article-header case-study-header">
+        <div><p class="eyebrow">Case study · Developer tooling</p><h1>Discord assistant bridge</h1><p class="lead">A TypeScript bridge that turns Discord conversations into persistent, reviewable assistant workflows.</p><ul class="project-meta" aria-label="Technologies"><li>TypeScript</li><li>Discord</li><li>Automation</li></ul></div>
+        <img class="case-study-visual" src="/assets/images/discord-assistant-bridge.svg" width="960" height="600" alt="Workflow diagram showing Discord requests entering a TypeScript bridge with a queue and human approval, then producing threads, reminders, voice replies, and activity records.">
+      </header>
+      <div class="case-study-layout">
+        <aside class="case-study-summary" aria-label="Project summary"><p class="section-label">At a glance</p><dl><div><dt>Purpose</dt><dd>Bridge chat and assistant workflows</dd></div><div><dt>Runtime</dt><dd>TypeScript</dd></div><div><dt>Controls</dt><dd>Queueing and human approval</dd></div></dl></aside>
+        <div class="prose">
+          <h2>The problem</h2>
+          <p>Assistant work inside chat needs more structure than a single request and reply. Longer-running work benefits from persistent context, an orderly request queue, explicit approval points, and a record that people can inspect.</p>
+          <h2>The approach</h2>
+          <p>The TypeScript bridge keeps assistant conversations in persistent Discord threads and queues requests instead of treating every message as unrelated. Human approvals provide an explicit checkpoint for work that should not proceed automatically.</p>
+          <p>The published feature set also covers reminders, voice replies, and auditable activity. Together, those features support asynchronous follow-up, more than one response format, and a visible trail of bridge activity.</p>
+          <h2>What the work demonstrates</h2>
+          <ul><li>Mapping persistent assistant context onto Discord threads.</li><li>Coordinating queued work with human approval points.</li><li>Combining reminders, voice responses, and activity records in one bridge.</li></ul>
+          <p class="case-study-note"><strong>About this case study:</strong> It documents the published feature set. It does not claim usage volume, customers, or business outcomes.</p>
+          <div class="article-actions"><a class="button button-primary" href="/#work">View all projects</a><a class="button" href="mailto:mail@shanegolding.net">Discuss a project</a></div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><p>© <span data-current-year>2026</span> Shane Golding</p><nav aria-label="Legal"><ul class="footer-links"><li><a href="/about.html">About</a></li><li><a href="/privacy.html">Privacy</a></li><li><a href="/terms.html">Terms</a></li></ul></nav></div></footer>
+  <script type="module" src="/assets/js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+  <title id="title">Accessible Snake interface</title>
+  <desc id="desc">A Snake board sits beside score and status feedback, with keyboard and four large direction-button controls.</desc>
+  <rect width="960" height="600" rx="28" fill="#111113"/>
+  <rect x="58" y="58" width="484" height="484" rx="16" fill="#070708" stroke="#68686c" stroke-width="4"/>
+  <g fill="#f1f1f2">
+    <rect x="300" y="198" width="58" height="58" rx="8"/>
+    <rect x="242" y="198" width="58" height="58" rx="8" opacity=".9"/>
+    <rect x="184" y="198" width="58" height="58" rx="8" opacity=".78"/>
+    <rect x="184" y="256" width="58" height="58" rx="8" opacity=".68"/>
+    <rect x="184" y="314" width="58" height="58" rx="8" opacity=".58"/>
+  </g>
+  <circle cx="416" cy="372" r="23" fill="#d8a574"/>
+  <g font-family="system-ui, sans-serif">
+    <text x="610" y="112" fill="#aaaab0" font-size="20">SCORE</text><text x="610" y="160" fill="#f1f1f2" font-size="42" font-weight="700">12</text>
+    <text x="780" y="112" fill="#aaaab0" font-size="20">BEST</text><text x="780" y="160" fill="#f1f1f2" font-size="42" font-weight="700">24</text>
+    <rect x="610" y="200" width="290" height="84" rx="14" fill="#1b1b1e" stroke="#68686c" stroke-width="3"/>
+    <text x="636" y="236" fill="#f0bd8b" font-size="18" font-weight="700">STATUS</text><text x="636" y="266" fill="#f1f1f2" font-size="19">Game running</text>
+    <g fill="#1b1b1e" stroke="#d8a574" stroke-width="3">
+      <rect x="714" y="320" width="72" height="64" rx="12"/><rect x="632" y="394" width="72" height="64" rx="12"/><rect x="714" y="394" width="72" height="64" rx="12"/><rect x="796" y="394" width="72" height="64" rx="12"/>
+    </g>
+    <g fill="#f1f1f2" font-size="30" font-weight="700" text-anchor="middle"><text x="750" y="362">↑</text><text x="668" y="436">←</text><text x="750" y="436">↓</text><text x="832" y="436">→</text></g>
+    <text x="755" y="510" fill="#aaaab0" font-size="18" text-anchor="middle">Keyboard + touch controls</text>
+  </g>
+</svg>

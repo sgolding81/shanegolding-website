@@ -38,9 +38,12 @@ jobs:
         uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5
       - name: Stage public files
         run: |
-          mkdir -p _site
-          cp -R assets _site/assets
-          cp index.html about.html privacy.html terms.html 404.html _site/
+          mkdir -p _site/assets/css _site/assets/images _site/assets/js
+          cp assets/css/site.css _site/assets/css/
+          cp assets/images/og-image.png assets/images/og-image.svg _site/assets/images/
+          cp assets/images/webcam-streaming.svg assets/images/discord-assistant-bridge.svg assets/images/accessible-snake.svg _site/assets/images/
+          cp assets/js/site.js assets/js/snake-engine.js assets/js/snake-ui.js _site/assets/js/
+          cp index.html about.html webcam-streaming.html discord-assistant-bridge.html accessible-snake.html privacy.html terms.html 404.html _site/
           cp CNAME .nojekyll favicon.svg robots.txt sitemap.xml _site/
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
